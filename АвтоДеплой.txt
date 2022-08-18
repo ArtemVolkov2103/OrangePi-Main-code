@@ -1,0 +1,5 @@
+sudo chmod +x AutoUpload.sh
+crontab -e
+*в редакторе*
+* * * * * /home/orangepi/Documents/python/AutoUpload.sh 
+sudo service cron reload
