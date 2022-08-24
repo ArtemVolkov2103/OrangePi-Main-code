@@ -175,7 +175,6 @@ if __name__ == '__main__':
 
             cv2.imshow("out_window", mask_blue)
             cv2.imshow("out_window", img)
-            root.mainloop()
         except:
             cap.release()
             raise
@@ -186,6 +185,7 @@ if __name__ == '__main__':
             break
     cap.release()
     cv2.destroyAllWindows()
+    root.mainloop()
 s.close()
 
 
