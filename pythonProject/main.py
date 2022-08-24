@@ -21,7 +21,6 @@ import serial
 from timer import Timer
 
 p = subprocess.Popen(['python3', 'blink_led.py'])
-#os.system("python3 blink_led.py")
 
 #s = serial.Serial('COM5', 9600) #для ноутбука
 s = serial.Serial('/dev/ttyUSB0', 9600)
@@ -113,7 +112,7 @@ if __name__ == '__main__':
                     cv2.putText(img, "angle " + str(angle), (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
                     cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
-                if dArea > 200 and w > 80 and h > 80:
+                if dArea > 200 and w > 100 and h > 100:
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
