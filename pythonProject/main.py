@@ -114,9 +114,9 @@ if __name__ == '__main__':
                     y = int(dM01 / dArea)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
                     # nimers for not a non-stop sending symbols
-                if h > 230 and (x < (width / 2 + edge * 2)) and (x > (width / 2 - edge * 2)):
-                    s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
-                    cv2.putText(img, "F ", (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+                    if h > 230 and (x < (width / 2 + edge * 2)) and (x > (width / 2 - edge * 2)):
+                        s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
+                        cv2.putText(img, "F ", (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
 
                 '''if (x > (width / 2 + edge*2)) and x != 0:
                     cv2.rectangle(img, (0, 0), (30, height), (0, 255, 0), -1)
