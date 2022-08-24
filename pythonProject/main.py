@@ -104,7 +104,7 @@ if __name__ == '__main__':
                 # если прямоугольник достаточного размера...
                 distance = int(11033 / h) #дистанция, 230 пикселей = 48см
                 angle = int((320 - x) / 6.4)
-                if checkSize(w, h) and w > 80:
+                if checkSize(w, h) and w > 80 and h > 80:
                     # выводим его
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     #cv2.putText(img, "Width " + str(w), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
@@ -112,7 +112,7 @@ if __name__ == '__main__':
                     cv2.putText(img, "angle " + str(angle), (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
                     cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
-                if dArea > 200 and w > 100 and h > 100:
+                if dArea > 200 and w > 80 and h > 80:
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
