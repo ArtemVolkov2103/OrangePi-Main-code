@@ -106,7 +106,7 @@ if __name__ == '__main__':
                 #if checkSize(w, h) and w > 80 and h > 80:
                     # выводим его
                     
-                if dArea > 200 and w > 80 and h > 80:
+                if dArea > 100 and w > 80 and h > 80:
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
