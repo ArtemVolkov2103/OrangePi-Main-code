@@ -99,8 +99,10 @@ if __name__ == '__main__':
                 # получаем координаты прямоугольника, в который они вписаны
                 x, y, w, h = cv2.boundingRect(c)
                 # если прямоугольник достаточного размера...
-                distance = int(11033 / h) #дистанция, 230 пикселей = 48см
-                angle = int((320 - x) / 6,4)
+                distance = 11033 / h #дистанция, 230 пикселей = 48см
+                distance = int(distance)
+                angle = (320 - x) / 6,4
+                angle = int(angle)
                 if checkSize(w, h):
                     # выводим его
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
