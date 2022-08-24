@@ -17,7 +17,7 @@ from time import sleep
 print ("Press CTRL+C to exit")
 system("echo 228 | sudo tee /sys/class/gpio/export") # This will create the PH4 instance
 system("echo out | sudo tee /sys/class/gpio/gpio228/direction") # This will set the PH4 as OUTPUT
-system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
+system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
 
 
 flag = False
@@ -41,7 +41,7 @@ def click_button():
            #sleep(0.5)
        else:
            buttonText.set("OFF")
-           system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 LOW
+           system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 LOW
            #sleep(0.5)
     except KeyboardInterrupt:
        print ("KeyboardInterrupt")
