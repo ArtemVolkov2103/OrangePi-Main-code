@@ -14,7 +14,7 @@ import sys
 from os import system
 
 from time import sleep
-
+print ("Press CTRL+C to exit")
 system("echo 228 | sudo tee /sys/class/gpio/export") # This will create the GPIO6 instance
 system("echo out | sudo tee /sys/class/gpio/gpio228/direction") # This will set the GPIO6 as OUTPUT
 #system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the GPIO6 HIGH
@@ -34,7 +34,7 @@ def click_button():
     global flag 
     flag = not flag
     try:
-       print ("Press CTRL+C to exit")
+       
        if flag:
            buttonText.set("ON")
            system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the GPIO6 HIGH
@@ -53,6 +53,7 @@ root = Tk()
 root.title("Python Window")
 root.geometry("200x100")
 buttonText = StringVar()
+buttonText.set("OFF")
 btn = Button(textvariable=buttonText, command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
 btn.pack() 
 root.protocol("WM_DELETE_WINDOW", on_closing)
