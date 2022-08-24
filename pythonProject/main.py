@@ -102,20 +102,22 @@ if __name__ == '__main__':
                 # получаем координаты прямоугольника, в который они вписаны
                 x, y, w, h = cv2.boundingRect(c)
                 # если прямоугольник достаточного размера...
-                distance = int(11033 / h) #дистанция, 230 пикселей = 48см
-                angle = int((320 - x) / 6.4)
-                if checkSize(w, h) and w > 80 and h > 80:
+                
+                #if checkSize(w, h) and w > 80 and h > 80:
                     # выводим его
+                    
+                if dArea > 200 and w > 80 and h > 80:
+                    x = int(dM10 / dArea)
+                    y = int(dM01 / dArea)
+                    cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
+                    distance = int(11033 / h) #дистанция, 230 пикселей = 48см
+                    angle = int((320 - x) / 6.4)
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     #cv2.putText(img, "Width " + str(w), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
                     cv2.putText(img, "X " + str(x), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
                     cv2.putText(img, "angle " + str(angle), (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
                     cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
-                if dArea > 200 and w > 80 and h > 80:
-                    x = int(dM10 / dArea)
-                    y = int(dM01 / dArea)
-                    cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
                     # nimers for not a non-stop sending symbols
                     if h > 230 and (x < (width / 2 + edge * 2)) and (x > (width / 2 - edge * 2)):
                         s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
