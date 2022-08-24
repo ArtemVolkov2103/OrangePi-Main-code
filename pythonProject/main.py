@@ -5,6 +5,10 @@
 
 # deb [signed-by=/usr/share/keyrings/protonvpn-stable-archive-keyring.gpg] https://repo.protonvpn.com/debian stable main
 # /dev/ttyUSB0
+from tkinter import *
+import os
+from os import system
+
 import sys
 import time
 
