@@ -17,7 +17,7 @@ from time import sleep
 print ("Press CTRL+C to exit")
 system("echo 228 | sudo tee /sys/class/gpio/export") # This will create the PH4 instance
 system("echo out | sudo tee /sys/class/gpio/gpio228/direction") # This will set the PH4 as OUTPUT
-#system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
+system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
 
 
 flag = False
