@@ -109,7 +109,7 @@ if __name__ == '__main__':
                     cv2.putText(img, "angle " + str(angle), (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
                     cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
-                if dArea > 200:
+                if dArea > 400:
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
