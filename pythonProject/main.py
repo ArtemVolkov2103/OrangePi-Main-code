@@ -104,7 +104,7 @@ if __name__ == '__main__':
                 # если прямоугольник достаточного размера...
                 
                 #if checkSize(w, h) and w > 80 and h > 80:
-                    # выводим его
+                    
                     
                 if dArea > 100 and w > 80 and h > 80:
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
