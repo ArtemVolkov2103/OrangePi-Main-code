@@ -20,7 +20,8 @@ import numpy
 import glob
 import serial
 from timer import Timer
-
+system("echo 228 | sudo tee /sys/class/gpio/export") # This will create the PH4 instance
+system("echo out | sudo tee /sys/class/gpio/gpio228/direction") # This will set the PH4 as OUTPUT
 #s = serial.Serial('COM5', 9600) #для ноутбука
 s = serial.Serial('/dev/ttyUSB0', 9600)
 s.close()
