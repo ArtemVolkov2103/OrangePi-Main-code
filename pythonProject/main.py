@@ -5,9 +5,6 @@
 
 # deb [signed-by=/usr/share/keyrings/protonvpn-stable-archive-keyring.gpg] https://repo.protonvpn.com/debian stable main
 # /dev/ttyUSB0
-from tkinter import *
-import os
-from os import system
 
 import sys
 import time
@@ -20,45 +17,6 @@ import numpy
 import glob
 import serial
 from timer import Timer
-system("echo 228 | sudo tee /sys/class/gpio/export") # This will create the PH4 instance
-system("echo out | sudo tee /sys/class/gpio/gpio228/direction") # This will set the PH4 as OUTPUT
-
-flag = False
-
-def on_closing():
-        root.destroy()
-        print ("Closed")
-        system("echo 0 | sudo tee /sys/class/gpio/gpio228/value")
-        system("echo 228 | sudo tee /sys/class/gpio/unexport")
-
-
-def click_button():
-    global clicks
-    global flag 
-    flag = not flag
-    try:
-       
-       if flag:
-           buttonText.set("ON")
-           system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
-       else:
-           buttonText.set("OFF")
-           system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 LOW
-    except KeyboardInterrupt:
-       print ("KeyboardInterrupt")
-       system("echo 0 | sudo tee /sys/class/gpio/gpio228/value")
-       system("echo 228 | sudo tee /sys/class/gpio/unexport")
-
-
-root = Tk()
-root.title("Python Window")
-root.geometry("200x100")
-buttonText = StringVar()
-buttonText.set("OFF")
-btn = Button(textvariable=buttonText, command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
-btn.pack() 
-root.protocol("WM_DELETE_WINDOW", on_closing)
-root.mainloop()
 
 #s = serial.Serial('COM5', 9600) #для ноутбука
 s = serial.Serial('/dev/ttyUSB0', 9600)
@@ -79,9 +37,6 @@ def checkSize(w, h):
         return True
     else:
         return False
-
-
-oldSym = "f"
 
 if __name__ == '__main__':
     def nothing(*arg):
