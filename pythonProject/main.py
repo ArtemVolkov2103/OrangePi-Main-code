@@ -58,7 +58,7 @@ buttonText.set("OFF")
 btn = Button(textvariable=buttonText, command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
 btn.pack() 
 root.protocol("WM_DELETE_WINDOW", on_closing)
-
+root.mainloop()
 
 #s = serial.Serial('COM5', 9600) #для ноутбука
 s = serial.Serial('/dev/ttyUSB0', 9600)
@@ -172,7 +172,7 @@ if __name__ == '__main__':
                         s.write(bytes("l", 'utf-8'))
                         cv2.putText(img, "L ", (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
                 '''
-            root.mainloop()
+            
             cv2.imshow("out_window", mask_blue)
             cv2.imshow("out_window", img)
         except:
