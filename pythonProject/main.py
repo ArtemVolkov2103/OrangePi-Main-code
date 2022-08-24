@@ -107,12 +107,12 @@ if __name__ == '__main__':
                     # выводим его
                     
                 if dArea > 100 and w > 80 and h > 80:
+					cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
                     distance = int(11033 / h) #дистанция, 230 пикселей = 48см
                     angle = int((320 - x) / 6.4)
-                    cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     #cv2.putText(img, "Width " + str(w), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
                     cv2.putText(img, "X " + str(x), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
                     cv2.putText(img, "angle " + str(angle), (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
