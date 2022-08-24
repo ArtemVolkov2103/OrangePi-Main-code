@@ -121,7 +121,8 @@ if __name__ == '__main__':
                     # nimers for not a non-stop sending symbols
                     if distance > 30 and distance < 50:
                         s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
-                        cv2.putText(img, "F ", (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+                        cv2.rectangle(img, (310, 40), (30, 30), (255, 255, 255), 15)
+                        cv2.putText(img, "F ", (320, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
 
                 '''if (x > (width / 2 + edge*2)) and x != 0:
                     cv2.rectangle(img, (0, 0), (30, height), (0, 255, 0), -1)
