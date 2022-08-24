@@ -37,7 +37,7 @@ def click_button():
        
        if flag:
            buttonText.set("ON")
-           system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
+           system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
            #sleep(0.5)
        else:
            buttonText.set("OFF")
