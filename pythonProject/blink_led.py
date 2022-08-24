@@ -40,7 +40,7 @@ def click_button():
            system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the GPIO6 HIGH
            #sleep(0.5)
        else:
-		   buttonText.set("OFF")
+           buttonText.set("OFF")
            system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the GPIO6 HIGH
            #sleep(0.5)
     except KeyboardInterrupt:
