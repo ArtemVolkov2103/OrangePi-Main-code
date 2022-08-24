@@ -36,9 +36,11 @@ def click_button():
     try:
        print ("Press CTRL+C to exit")
        if flag:
+           buttonText.set("ON")
            system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the GPIO6 HIGH
            #sleep(0.5)
        else:
+		   buttonText.set("OFF")
            system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the GPIO6 HIGH
            #sleep(0.5)
     except KeyboardInterrupt:
@@ -50,7 +52,8 @@ def click_button():
 root = Tk()
 root.title("Python Window")
 root.geometry("200x100")
-btn = Button(text="On/Off", command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
+buttonText = StringVar()
+btn = Button(textvariable=buttonText, command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
 btn.pack() 
 root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop()
