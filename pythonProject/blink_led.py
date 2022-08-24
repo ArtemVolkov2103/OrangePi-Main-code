@@ -24,7 +24,7 @@ flag = False
 
 def on_closing():
         root.destroy()
-        print ("Goodbye.")
+        print ("Closed")
         system("echo 0 | sudo tee /sys/class/gpio/gpio228/value")
         system("echo 228 | sudo tee /sys/class/gpio/unexport")
 
@@ -44,7 +44,7 @@ def click_button():
            system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the GPIO6 HIGH
            #sleep(0.5)
     except KeyboardInterrupt:
-       print ("Goodbye.")
+       print ("KeyboardInterrupt")
        system("echo 0 | sudo tee /sys/class/gpio/gpio228/value")
        system("echo 228 | sudo tee /sys/class/gpio/unexport")
 
