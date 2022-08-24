@@ -101,6 +101,7 @@ if __name__ == '__main__':
     previousSec = 0.0
 
     while True:
+		root.mainloop()
         currentSec = time.perf_counter()
         flag, img = cap.read()
         # width = 640
@@ -186,4 +187,4 @@ if __name__ == '__main__':
     cv2.destroyAllWindows()
 s.close()
 
-root.mainloop()
+
