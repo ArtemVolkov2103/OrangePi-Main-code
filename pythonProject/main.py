@@ -101,7 +101,7 @@ if __name__ == '__main__':
     previousSec = 0.0
 
     while True:
-        root.mainloop()
+        
         currentSec = time.perf_counter()
         flag, img = cap.read()
         # width = 640
@@ -175,6 +175,7 @@ if __name__ == '__main__':
 
             cv2.imshow("out_window", mask_blue)
             cv2.imshow("out_window", img)
+            root.mainloop()
         except:
             cap.release()
             raise
