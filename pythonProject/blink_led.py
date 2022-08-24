@@ -50,7 +50,7 @@ def click_button():
 root = Tk()
 root.title("Python Window")
 root.geometry("200x100")
-btn = Button(text="On/Off", command=click_button)
+btn = Button(text="On/Off", command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
 btn.pack() 
 root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop()
