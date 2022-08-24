@@ -51,7 +51,7 @@ def click_button():
 
 root = Tk()
 root.title("Python Window")
-root.geometry("200x100")
+root.geometry("200x100+100+100")
 buttonText = StringVar()
 buttonText.set("OFF")
 btn = Button(textvariable=buttonText, command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
