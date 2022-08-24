@@ -25,7 +25,7 @@ flag = False
 def on_closing():
         root.destroy()
         print ("Closed")
-        system("echo 0 | sudo tee /sys/class/gpio/gpio228/value")
+        system("echo 1 | sudo tee /sys/class/gpio/gpio228/value")
         system("echo 228 | sudo tee /sys/class/gpio/unexport")
 
 
@@ -37,15 +37,15 @@ def click_button():
        
        if flag:
            buttonText.set("ON")
-           system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
+           system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 HIGH
            #sleep(0.5)
        else:
            buttonText.set("OFF")
-           system("echo 0 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 LOW
+           system("echo 1 | sudo tee /sys/class/gpio/gpio228/value") # This will set the PH4 LOW
            #sleep(0.5)
     except KeyboardInterrupt:
        print ("KeyboardInterrupt")
-       system("echo 0 | sudo tee /sys/class/gpio/gpio228/value")
+       system("echo 1 | sudo tee /sys/class/gpio/gpio228/value")
        system("echo 228 | sudo tee /sys/class/gpio/unexport")
 
 
