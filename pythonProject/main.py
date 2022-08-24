@@ -107,7 +107,7 @@ if __name__ == '__main__':
                     # выводим его
                     
                 if dArea > 100 and w > 80 and h > 80:
-					cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
+                    cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
