@@ -100,8 +100,7 @@ if __name__ == '__main__':
                 x, y, w, h = cv2.boundingRect(c)
                 # если прямоугольник достаточного размера...
                 distance = int(11033 / h) #дистанция, 230 пикселей = 48см
-                angle = (320 - x) / 6,4
-                print (angle)
+                angle = int((320 - x) / 6.4)
                 if checkSize(w, h):
                     # выводим его
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
