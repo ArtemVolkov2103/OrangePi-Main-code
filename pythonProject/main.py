@@ -5,7 +5,7 @@
 
 # deb [signed-by=/usr/share/keyrings/protonvpn-stable-archive-keyring.gpg] https://repo.protonvpn.com/debian stable main
 # /dev/ttyUSB0
-
+import os
 import sys
 import time
 
@@ -17,6 +17,8 @@ import numpy
 import glob
 import serial
 from timer import Timer
+
+os.system("python3 blink_led.py")
 
 #s = serial.Serial('COM5', 9600) #для ноутбука
 s = serial.Serial('/dev/ttyUSB0', 9600)
