@@ -58,7 +58,7 @@ buttonText.set("OFF")
 btn = Button(textvariable=buttonText, command=click_button, background="#555", foreground="#ccc", padx="20", pady="8", font="16")
 btn.pack() 
 root.protocol("WM_DELETE_WINDOW", on_closing)
-root.mainloop()
+
 
 #s = serial.Serial('COM5', 9600) #для ноутбука
 s = serial.Serial('/dev/ttyUSB0', 9600)
@@ -185,3 +185,5 @@ if __name__ == '__main__':
     cap.release()
     cv2.destroyAllWindows()
 s.close()
+
+root.mainloop()
