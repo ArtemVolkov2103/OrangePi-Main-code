@@ -172,7 +172,7 @@ if __name__ == '__main__':
                         s.write(bytes("l", 'utf-8'))
                         cv2.putText(img, "L ", (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
                 '''
-
+            root.mainloop()
             cv2.imshow("out_window", mask_blue)
             cv2.imshow("out_window", img)
         except:
@@ -185,7 +185,7 @@ if __name__ == '__main__':
             break
     cap.release()
     cv2.destroyAllWindows()
-    root.mainloop()
+    
 s.close()
 
 
