@@ -119,7 +119,7 @@ if __name__ == '__main__':
                     cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
                     # nimers for not a non-stop sending symbols
-                    if distance > 30 and distance < 50 and w < 300:
+                    if distance > 30 and distance < 50 and w < 230:
                         s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
