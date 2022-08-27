@@ -43,7 +43,7 @@ isObjectFound = False #флаг, найден ли объект
 cameraAng = 90
 camEdge = False
 angle = 90
-isRotated = false #повернул ли робот корпус к объекту
+isRotated = False #повернул ли робот корпус к объекту
 # определяем функцию проверки размера пятна
 def checkSize(w, h):
     if (w * h) > BLOBSIZE:
@@ -134,6 +134,13 @@ if __name__ == '__main__':
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))    
                     print("Обьект на " + str(cameraAng) + "," + str(angle))
                     isObjectFound = True
+                    if not isRotated:
+						if cameraAng > 90: # направо
+                        	s.write(bytes(str(cameraAng - 90) + "," + str(70), 'utf-8'))
+                        	isRotated = True
+                        else: # налево
+                        	s.write(bytes(str(90 - cameraAng) + "," + str(80), 'utf-8'))
+                        	isRotated = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
