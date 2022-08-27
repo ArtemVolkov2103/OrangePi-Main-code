@@ -62,6 +62,7 @@ if __name__ == '__main__':
 
     while True:
         if isObjectFound == False
+          print(1)
 
         currentSec = time.perf_counter()
         flag, img = cap.read()
