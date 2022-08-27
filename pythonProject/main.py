@@ -61,8 +61,8 @@ if __name__ == '__main__':
     previousSec = 0.0
 
     while True:
-       if not isObjectFound:
-            
+       if isObjectFound:
+           
 
         currentSec = time.perf_counter()
         flag, img = cap.read()
