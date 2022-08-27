@@ -126,10 +126,10 @@ if __name__ == '__main__':
                             camEdge = False
                 if dArea > 100 and w > 80 and h > 80:
                     if angle > cameraAng:
-                        cameraAng = cameraAng + 1
+                        cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                     if angle < cameraAng:
-                        cameraAng = cameraAng - 1
+                        cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))    
                     print("Обьект на " + str(cameraAng) + "," + str(angle))
                     isObjectFound = True
