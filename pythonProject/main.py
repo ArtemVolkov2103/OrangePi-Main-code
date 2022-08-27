@@ -120,7 +120,7 @@ if __name__ == '__main__':
                     if cameraAng > 80 and edge:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-                        if cameraAng == 100:
+                        if cameraAng == 80:
                             edge = False
                 if dArea > 100 and w > 80 and h > 80:
                     currentSec = time.perf_counter()
