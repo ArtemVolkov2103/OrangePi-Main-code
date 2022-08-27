@@ -44,7 +44,10 @@ def checkSize(w, h):
         return True
     else:
         return False
-
+currentSec = 0.0
+interval = 0.5
+previousSec = 0.0
+previousSec = time.perf_counter()
 if __name__ == '__main__':
     def nothing(*arg):
         pass
@@ -58,10 +61,7 @@ if __name__ == '__main__':
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     t = Timer()
     t.start()
-    currentSec = 0.0
-    interval = 0.5
-    previousSec = 0.0
-    previousSec = time.perf_counter()
+    
 
     while True:
         
