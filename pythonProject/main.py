@@ -62,8 +62,7 @@ if __name__ == '__main__':
 
     while True:
         if not isObjectFound:
-           
-
+            edge = 100
         currentSec = time.perf_counter()
         flag, img = cap.read()
         # width = 640
