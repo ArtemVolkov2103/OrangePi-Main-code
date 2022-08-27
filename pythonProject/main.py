@@ -112,12 +112,12 @@ if __name__ == '__main__':
                 if not isObjectFound:
                     print(str(cameraAng))
                     previousSec = time.perf_counter()
-                    if cameraAng <= 100 and not edge:
+                    if cameraAng <= 100 and not isObjectFound:
                         cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 100:
                             edge = True
-                    if cameraAng >= 80 and edge:
+                    if cameraAng > 80 and not isObjectFound:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 80:
