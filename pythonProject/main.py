@@ -112,23 +112,23 @@ if __name__ == '__main__':
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
                 if not isObjectFound:
-                    print(str(cameraAng))
+                    #print(str(cameraAng))
                     previousSec = time.perf_counter()
-                    if cameraAng <= 180 and not camEdge:
-                        cameraAng = cameraAng + 1
-                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-                        if cameraAng == 180:
-                            camEdge = True
-                    if cameraAng > 0 and camEdge:
+                    if cameraAng > 0 and not camEdge:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 0:
-                            camEdge = False
-                if dArea > 100 and w > 80 and h > 80:
-                    if angle > 2:
+                            camEdge = True
+                    if cameraAng < 180 and camEdge:
                         cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-                    if angle < -2:
+                        if cameraAng == 180:
+                            camEdge = False
+                if dArea > 100 and w > 80 and h > 80:
+                    if angle > 8:
+                        cameraAng = cameraAng + 1
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                    if angle < -8:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))    
                     print("Обьект на " + str(cameraAng) + "," + str(angle))
