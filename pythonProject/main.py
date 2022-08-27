@@ -34,6 +34,11 @@ RTHICK = 2
 # минимальный размер контуров пятна
 BLOBSIZE = 1500
 
+currentSec = 0.0
+interval = 0.5
+previousSec = 0.0
+previousSec = time.perf_counter()
+
 isObjectFound = False #флаг, найден ли обьект
 cameraAng = 90
 camEdge = False
@@ -44,10 +49,7 @@ def checkSize(w, h):
         return True
     else:
         return False
-currentSec = 0.0
-interval = 0.5
-previousSec = 0.0
-previousSec = time.perf_counter()
+
 if __name__ == '__main__':
     def nothing(*arg):
         pass
@@ -124,7 +126,7 @@ if __name__ == '__main__':
                             camEdge = False
                 if dArea > 100 and w > 80 and h > 80:
                     currentSec = time.perf_counter()
-                    print(str(currentSec - previousSec))
+                    print(str(currentSec) + " " + str(previousSec) + " " + str(currentSec - previousSec))
                     if currentSec - previousSec > interval:
                         isObjectFound = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
