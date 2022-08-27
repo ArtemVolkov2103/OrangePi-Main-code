@@ -34,7 +34,7 @@ RTHICK = 2
 # минимальный размер контуров пятна
 BLOBSIZE = 1500
 
-isObjectFound = False #флаг, найден ли обьект
+isObjectFound = True #флаг, найден ли обьект
 
 # определяем функцию проверки размера пятна
 def checkSize(w, h):
@@ -61,8 +61,7 @@ if __name__ == '__main__':
     previousSec = 0.0
 
     while True:
-        if not isObjectFound:
-            edge = 100
+        
         currentSec = time.perf_counter()
         flag, img = cap.read()
         # width = 640
@@ -108,7 +107,8 @@ if __name__ == '__main__':
                 
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
-                    
+                if not isObjectFound:
+					  
                 if dArea > 100 and w > 80 and h > 80:
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
