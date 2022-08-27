@@ -135,7 +135,7 @@ if __name__ == '__main__':
                     #print("Обьект на " + str(cameraAng) + "," + str(angle))
                     isObjectFound = True
                     if not isRotated:
-						if cameraAng > 90: # направо
+                        if cameraAng > 90: # направо
                         	print("Right")
                         	s.write(bytes(str(cameraAng - 90) + "," + str(70), 'utf-8'))
                         	isRotated = True
