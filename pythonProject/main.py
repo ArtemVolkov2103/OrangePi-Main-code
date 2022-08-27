@@ -61,7 +61,7 @@ if __name__ == '__main__':
     previousSec = 0.0
 
     while True:
-       if isObjectFound:
+		if not isObjectFound:
            
 
         currentSec = time.perf_counter()
