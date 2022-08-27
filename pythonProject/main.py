@@ -114,18 +114,24 @@ if __name__ == '__main__':
                 if not isObjectFound:
                     print(str(cameraAng))
                     previousSec = time.perf_counter()
-                    if cameraAng <= 180 and not camEdge and angle != cameraAng:
+                    if cameraAng <= 180 and not camEdge:
                         cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 180:
                             camEdge = True
-                    if cameraAng > 0 and camEdge and angle != cameraAng:
+                    if cameraAng > 0 and camEdge:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 0:
                             camEdge = False
                 if dArea > 100 and w > 80 and h > 80:
-                    print("Обьект на " + str(cameraAng))
+                    if angle > cameraAng:
+                        cameraAng = cameraAng + 1
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                    if angle < cameraAng:
+                        cameraAng = cameraAng - 1
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))    
+                    print("Обьект на " + str(cameraAng) + "," + str(angle))
                     isObjectFound = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
