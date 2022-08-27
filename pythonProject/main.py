@@ -61,10 +61,10 @@ if __name__ == '__main__':
     currentSec = 0.0
     interval = 0.5
     previousSec = 0.0
+    previousSec = time.perf_counter()
 
     while True:
         
-        previousSec = time.perf_counter()
         flag, img = cap.read()
         # width = 640
         # height = 480
