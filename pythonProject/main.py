@@ -39,10 +39,11 @@ interval = 0.5
 previousSec = 0.0
 previousSec = 0.0
 
-isObjectFound = False #флаг, найден ли обьект
+isObjectFound = False #флаг, найден ли объект
 cameraAng = 90
 camEdge = False
 angle = 90
+isRotated = false #повернул ли робот корпус к объекту
 # определяем функцию проверки размера пятна
 def checkSize(w, h):
     if (w * h) > BLOBSIZE:
