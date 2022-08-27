@@ -110,17 +110,16 @@ if __name__ == '__main__':
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
                 if not isObjectFound:
-					if cameraAng < 100 and not edge:
+                    if cameraAng < 100 and not edge:
 						cameraAng = cameraAng + 1
 						s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
 						if cameraAng == 100:
 							edge = True
-					if cameraAng > 80 and edge:
+                    if cameraAng > 80 and edge:
 						cameraAng = cameraAng - 1
 						s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
 						if cameraAng == 100:
 							edge = False
-							
                 if dArea > 100 and w > 80 and h > 80:
 					isObjectFound = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
@@ -136,7 +135,7 @@ if __name__ == '__main__':
 
                     # nimers for not a non-stop sending symbols
                     if distance > 30 and distance < 50 and w < 230:
-                        s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
+                        #s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
 
