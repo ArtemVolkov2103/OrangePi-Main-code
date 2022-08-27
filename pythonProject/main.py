@@ -111,17 +111,17 @@ if __name__ == '__main__':
                     
                 if not isObjectFound:
                     if cameraAng < 100 and not edge:
-						cameraAng = cameraAng + 1
-						s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-						if cameraAng == 100:
-							edge = True
+                        cameraAng = cameraAng + 1
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        if cameraAng == 100:
+                            edge = True
                     if cameraAng > 80 and edge:
-						cameraAng = cameraAng - 1
-						s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-						if cameraAng == 100:
-							edge = False
+                        cameraAng = cameraAng - 1
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        if cameraAng == 100:
+                            edge = False
                 if dArea > 100 and w > 80 and h > 80:
-					isObjectFound = True
+                    isObjectFound = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
