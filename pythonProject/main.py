@@ -34,7 +34,7 @@ RTHICK = 2
 # минимальный размер контуров пятна
 BLOBSIZE = 1500
 
-isObjectFound = True #флаг, найден ли обьект
+isObjectFound = False #флаг, найден ли обьект
 cameraAng = 90
 edge = False
 
