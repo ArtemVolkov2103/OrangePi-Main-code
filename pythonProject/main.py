@@ -132,13 +132,15 @@ if __name__ == '__main__':
                     if angle < -8:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))    
-                    print("Обьект на " + str(cameraAng) + "," + str(angle))
+                    #print("Обьект на " + str(cameraAng) + "," + str(angle))
                     isObjectFound = True
                     if not isRotated:
 						if cameraAng > 90: # направо
+                        	print("Right")
                         	s.write(bytes(str(cameraAng - 90) + "," + str(70), 'utf-8'))
                         	isRotated = True
                         else: # налево
+                        	print("Left")
                         	s.write(bytes(str(90 - cameraAng) + "," + str(80), 'utf-8'))
                         	isRotated = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
