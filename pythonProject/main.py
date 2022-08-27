@@ -59,7 +59,7 @@ if __name__ == '__main__':
     t = Timer()
     t.start()
     currentSec = 0.0
-    interval = 3.0
+    interval = 0.5
     previousSec = 0.0
 
     while True:
@@ -121,7 +121,10 @@ if __name__ == '__main__':
                         if cameraAng == 100:
                             edge = False
                 if dArea > 100 and w > 80 and h > 80:
-                    isObjectFound = True
+					previosSec = time.perf_counter()
+					if currentSec - previosSec > interval:
+                        isObjectFound = True
+                    currentSec = time.perf_counter()
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
