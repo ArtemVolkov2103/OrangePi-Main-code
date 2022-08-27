@@ -35,6 +35,7 @@ RTHICK = 2
 BLOBSIZE = 1500
 
 isObjectFound = True #флаг, найден ли обьект
+cameraAng = 90
 
 # определяем функцию проверки размера пятна
 def checkSize(w, h):
@@ -108,6 +109,8 @@ if __name__ == '__main__':
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
                 if not isObjectFound:
+					if ang < 180
+					s.write(bytes(str(angle) + "," + str(60), 'utf-8'))
 					  
                 if dArea > 100 and w > 80 and h > 80:
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
