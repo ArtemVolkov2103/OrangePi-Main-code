@@ -34,6 +34,7 @@ RTHICK = 2
 # минимальный размер контуров пятна
 BLOBSIZE = 1500
 
+isObjectFound = False #флаг, найден ли обьект
 
 # определяем функцию проверки размера пятна
 def checkSize(w, h):
@@ -60,7 +61,9 @@ if __name__ == '__main__':
     previousSec = 0.0
 
     while True:
+        if(!isObjectFound){
         
+        }
         currentSec = time.perf_counter()
         flag, img = cap.read()
         # width = 640
@@ -72,6 +75,7 @@ if __name__ == '__main__':
         low_blue = numpy.array((90, 70, 70), numpy.uint8)
         high_blue = numpy.array((140, 255, 255), numpy.uint8)
         try:
+			
             img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
             mask_blue = cv2.inRange(img_hsv, low_blue, high_blue)
 
