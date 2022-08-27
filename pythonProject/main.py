@@ -110,7 +110,7 @@ if __name__ == '__main__':
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
                 if not isObjectFound:
-                    print(str(cameraAng))
+                    #print(str(cameraAng))
                     previousSec = time.perf_counter()
                     if cameraAng <= 100 and not camEdge:
                         cameraAng = cameraAng + 1
@@ -124,6 +124,7 @@ if __name__ == '__main__':
                             camEdge = False
                 if dArea > 100 and w > 80 and h > 80:
                     currentSec = time.perf_counter()
+                    print(str(currentSec - previousSec))
                     if currentSec - previousSec > interval:
                         isObjectFound = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
