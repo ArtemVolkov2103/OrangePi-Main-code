@@ -37,7 +37,7 @@ BLOBSIZE = 1500
 currentSec = 0.0
 interval = 0.5
 previousSec = 0.0
-previousSec = time.perf_counter()
+previousSec = 0.0
 
 isObjectFound = False #флаг, найден ли обьект
 cameraAng = 90
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     t = Timer()
-    t.start()
+    
     
 
     while True:
@@ -125,10 +125,8 @@ if __name__ == '__main__':
                         if cameraAng == 80:
                             camEdge = False
                 if dArea > 100 and w > 80 and h > 80:
-                    currentSec = time.perf_counter()
-                    print(str(currentSec) + " " + str(previousSec) + " " + str(currentSec - previousSec))
-                    if currentSec - previousSec > interval:
-                        isObjectFound = True
+                    print(str(cameraAng))
+                    isObjectFound = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
