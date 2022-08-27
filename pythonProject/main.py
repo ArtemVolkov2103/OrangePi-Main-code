@@ -36,7 +36,7 @@ BLOBSIZE = 1500
 
 isObjectFound = False #флаг, найден ли обьект
 cameraAng = 90
-edge = False
+camEdge = False
 
 # определяем функцию проверки размера пятна
 def checkSize(w, h):
@@ -112,16 +112,16 @@ if __name__ == '__main__':
                 if not isObjectFound:
                     print(str(cameraAng))
                     previousSec = time.perf_counter()
-                    if cameraAng <= 100 and not isObjectFound:
+                    if cameraAng <= 100 and not camEdge:
                         cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 100:
-                            edge = True
-                    if cameraAng > 80 and not isObjectFound:
+                            camEdge = True
+                    if cameraAng > 80 and camEdge:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 80:
-                            edge = False
+                            camEdge = False
                 if dArea > 100 and w > 80 and h > 80:
                     currentSec = time.perf_counter()
                     if currentSec - previousSec > interval:
