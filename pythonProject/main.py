@@ -104,7 +104,9 @@ if __name__ == '__main__':
             gray = cv2.cvtColor(bitwise, cv2.COLOR_BGR2GRAY)
             # ищем контуры в картинке
             contours, _ = cv2.findContours(mask_blue, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-            w = 0, h = 0
+            w = 0
+            h = 0
+            isObjectFound = False
             if len(contours) != 0:
                 # выводим найденные контуры
                 cv2.drawContours(img, contours, -1, 255, 4)
@@ -156,7 +158,6 @@ if __name__ == '__main__':
                         #s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
-                    isObjectFound = False
 
                 '''if (x > (width / 2 + edge*2)) and x != 0:
                     cv2.rectangle(img, (0, 0), (30, height), (0, 255, 0), -1)
