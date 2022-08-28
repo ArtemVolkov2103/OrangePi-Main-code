@@ -115,7 +115,7 @@ if __name__ == '__main__':
                 
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
-                if not isObjectFound and w < 80 and h < 80:
+                if not isObjectFound and w < 80 and h < 80 and  not isRotated:
                     isRotated = False
                     print("Search for object on " + str(cameraAng))
                     previousSec = time.perf_counter()
