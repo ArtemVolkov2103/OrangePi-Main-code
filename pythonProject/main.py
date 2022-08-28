@@ -22,7 +22,7 @@ import serial
 from timer import Timer
 
 p = subprocess.Popen(['python3', 'blink_led.py'])
-
+sleep(1)
 #s = serial.Serial('COM5', 9600) #для ноутбука
 s = serial.Serial('/dev/ttyUSB0', 9600)
 s.close()
