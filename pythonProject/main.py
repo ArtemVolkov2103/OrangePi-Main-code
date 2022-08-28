@@ -116,7 +116,7 @@ if __name__ == '__main__':
                 x, y, w, h = cv2.boundingRect(c)
                 # если прямоугольник достаточного размера...
                 
-                if w < 80 and h < 80:
+                if dArea < 100 and w < 80 and h < 80:
                     isObjectFound = False
                 
                             
