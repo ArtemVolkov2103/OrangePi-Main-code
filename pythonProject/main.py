@@ -168,7 +168,7 @@ if __name__ == '__main__':
                         #s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
-                if dArea < 100 and w < 80 and h < 80:
+                if w < 80 and h < 80:
                     isObjectFound = False
 
                 '''if (x > (width / 2 + edge*2)) and x != 0:
