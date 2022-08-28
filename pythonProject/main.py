@@ -129,7 +129,7 @@ if __name__ == '__main__':
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
                         #sleep(0.1)
-                        #print("Обьект на " + str(cameraAng))
+                        print("Обьект на " + str(cameraAng))
 
                     if angle < -4  and cameraAng > 0:
                         sleep(0.1)
@@ -137,7 +137,7 @@ if __name__ == '__main__':
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
                         #sleep(0.1)
-                        #print("Обьект на " + str(cameraAng))
+                        print("Обьект на " + str(cameraAng))
 
                     #print("Обьект на " + str(cameraAng))
                     if not isRotated:
