@@ -104,6 +104,7 @@ if __name__ == '__main__':
             gray = cv2.cvtColor(bitwise, cv2.COLOR_BGR2GRAY)
             # ищем контуры в картинке
             contours, _ = cv2.findContours(mask_blue, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+            w = 0, h = 0
             if len(contours) != 0:
                 # выводим найденные контуры
                 cv2.drawContours(img, contours, -1, 255, 4)
@@ -115,20 +116,7 @@ if __name__ == '__main__':
                 
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
-                if not isObjectFound and w < 80 and h < 80 and  not isRotated:
-                    isRotated = False
-                    print("Search for object on " + str(cameraAng))
-                    previousSec = time.perf_counter()
-                    if cameraAng > 0 and not camEdge:
-                        cameraAng = cameraAng - 1
-                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-                        if cameraAng == 0:
-                            camEdge = True
-                    if cameraAng < 180 and camEdge:
-                        cameraAng = cameraAng + 1
-                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-                        if cameraAng == 180:
-                            camEdge = False
+                
                             
                 if dArea > 100 and w > 80 and h > 80:
                     if angle > 8 and cameraAng < 180:
@@ -141,7 +129,7 @@ if __name__ == '__main__':
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         print("Обьект на " + str(cameraAng))
     
-                    print("Обьект на " + str(cameraAng))
+                    #print("Обьект на " + str(cameraAng))
                     isObjectFound = True
                     if not isRotated:
                         sleep(0.1)
@@ -168,7 +156,6 @@ if __name__ == '__main__':
                         #s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
-                if w < 80 and h < 80:
                     isObjectFound = False
 
                 '''if (x > (width / 2 + edge*2)) and x != 0:
@@ -181,7 +168,21 @@ if __name__ == '__main__':
                         s.write(bytes("l", 'utf-8'))
                         cv2.putText(img, "L ", (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
                 '''
-            
+            if not isObjectFound and w < 80 and h < 80 and not isRotated:
+                    isRotated = False
+                    print("Search for object on " + str(cameraAng))
+                    previousSec = time.perf_counter()
+                    if cameraAng > 0 and not camEdge:
+                        cameraAng = cameraAng - 1
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        if cameraAng == 0:
+                            camEdge = True
+                    if cameraAng < 180 and camEdge:
+                        cameraAng = cameraAng + 1
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        if cameraAng == 180:
+                            camEdge = False
+                            
             cv2.imshow("out_window", mask_blue)
             cv2.imshow("out_window", img)
         except:
