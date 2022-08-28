@@ -107,6 +107,7 @@ if __name__ == '__main__':
             w = 0
             h = 0
             isObjectFound = False
+            s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
             if len(contours) != 0:
                 # выводим найденные контуры
                 cv2.drawContours(img, contours, -1, 255, 4)
@@ -139,7 +140,6 @@ if __name__ == '__main__':
                         #sleep(0.1)
                         print("Обьект на " + str(cameraAng))
 
-                    #print("Обьект на " + str(cameraAng))
                     if not isRotated:
                         sleep(0.05)
                         if cameraAng > 90:
@@ -171,7 +171,6 @@ if __name__ == '__main__':
             if not isObjectFound and w < 80 and h < 80:
                     isRotated = False
                     print("Search for object on " + str(cameraAng))
-                    previousSec = time.perf_counter()
                     if cameraAng > 0 and not camEdge:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
