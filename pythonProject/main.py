@@ -122,17 +122,17 @@ if __name__ == '__main__':
                             
                 if dArea > 100 and w > 80 and h > 80:
                     if angle > 8 and cameraAng < 180:
-                        sleep(0.1)
                         cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         print("Обьект на " + str(cameraAng))
+                        sleep(0.1)
 
                     if angle < -8  and cameraAng > 0:
-                        sleep(0.1)
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         print("Обьект на " + str(cameraAng))
-    
+                        sleep(0.1)
+
                     #print("Обьект на " + str(cameraAng))
                     isObjectFound = True
                     if not isRotated:
