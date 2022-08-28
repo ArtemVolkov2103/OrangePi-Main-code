@@ -169,7 +169,7 @@ if __name__ == '__main__':
                         s.write(bytes("l", 'utf-8'))
                         cv2.putText(img, "L ", (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
                 '''
-            if not isObjectFound and w < 80 and h < 80 and not isRotated:
+            if not isObjectFound and w < 80 and h < 80:
                     isRotated = False
                     print("Search for object on " + str(cameraAng))
                     previousSec = time.perf_counter()
