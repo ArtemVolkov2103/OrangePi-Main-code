@@ -112,8 +112,9 @@ if __name__ == '__main__':
                 
                 #if checkSize(w, h) and w > 80 and h > 80:
                     
-                if not isObjectFound:
-                    #print(str(cameraAng))
+                if not isObjectFound and w < 80 and h < 80:
+                    isRotated = False
+                    print("Search for object on " + str(cameraAng))
                     previousSec = time.perf_counter()
                     if cameraAng > 0 and not camEdge:
                         cameraAng = cameraAng - 1
@@ -132,7 +133,7 @@ if __name__ == '__main__':
                     if angle < -8:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))    
-                    #print("Обьект на " + str(cameraAng) + "," + str(angle))
+                    print("Обьект на " + str(cameraAng))
                     isObjectFound = True
                     if not isRotated:
                         if cameraAng > 90: # направо
