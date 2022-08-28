@@ -136,12 +136,12 @@ if __name__ == '__main__':
                     isObjectFound = True
                     if not isRotated:
                         if cameraAng > 90: # направо
-                        	print("Right")
-                        	s.write(bytes(str(cameraAng - 90) + "," + str(70), 'utf-8'))
+                        	print("Right" + str(cameraAng))
+                        	s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
                         	isRotated = True
                         else: # налево
-                        	print("Left")
-                        	s.write(bytes(str(90 - cameraAng) + "," + str(80), 'utf-8'))
+                        	print("Left" + str(cameraAng))
+                        	s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
                         	isRotated = True
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
@@ -155,7 +155,7 @@ if __name__ == '__main__':
                     cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
                     # nimers for not a non-stop sending symbols
-                    if distance > 30 and distance < 50 and w < 230:
+                    if distance > 30 and distance < 50 and w < 230 and isObjectFound and isRotated:
                         #s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
