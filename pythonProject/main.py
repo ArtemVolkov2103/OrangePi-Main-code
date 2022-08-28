@@ -129,6 +129,7 @@ if __name__ == '__main__':
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 180:
                             camEdge = False
+                            
                 if dArea > 100 and w > 80 and h > 80:
                     if angle > 8 and cameraAng < 180:
                         cameraAng = cameraAng + 1
