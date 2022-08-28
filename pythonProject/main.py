@@ -124,7 +124,7 @@ if __name__ == '__main__':
                     isObjectFound = True
 
                     if angle > 4 and cameraAng < 180:
-                        sleep(0.05)
+                        #sleep(0.05)
                         cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
@@ -132,7 +132,7 @@ if __name__ == '__main__':
                         print("Обьект на " + str(cameraAng))
 
                     if angle < -4  and cameraAng > 0:
-                        sleep(0.05)
+                        #sleep(0.05)
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
@@ -146,10 +146,17 @@ if __name__ == '__main__':
                         	print("Left " + str(cameraAng))
                         	s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
                         	isRotated = True
+                        	sleep(0.05)
+                        	cameraAng = 90
+                        	s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         else: 
                         	print("Right " + str(cameraAng))
                         	s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
                         	isRotated = True
+                        	sleep(0.05)
+                        	cameraAng = 90
+                        	s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
