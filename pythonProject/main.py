@@ -137,7 +137,7 @@ if __name__ == '__main__':
 
                     #print("Обьект на " + str(cameraAng))
                     if not isRotated:
-                        sleep(0.1)
+                        #sleep(0.1)
                         if cameraAng > 90:
                         	print("Left " + str(cameraAng))
                         	s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
