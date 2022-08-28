@@ -146,17 +146,12 @@ if __name__ == '__main__':
                         	print("Left " + str(cameraAng))
                         	s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
                         	isRotated = True
-                        	sleep(0.5)
-                        	cameraAng = 90
-                        	s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+
                         else: 
                         	print("Right " + str(cameraAng))
                         	s.write(bytes(str(cameraAng) + "," + str(70), 'utf-8'))
                         	isRotated = True
-                        	sleep(0.5)
-                        	cameraAng = 90
-                        	s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
-
+                        	
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
