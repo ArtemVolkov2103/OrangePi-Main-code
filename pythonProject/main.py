@@ -10,6 +10,7 @@ import subprocess
 
 import sys
 import time
+from time import sleep
 
 sys.path.append('/home/orangepi/Documents/python/pythonProject/venv/Lib/site-packages/')
 import cv2
