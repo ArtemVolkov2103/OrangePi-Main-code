@@ -32,7 +32,7 @@ try:
         h_max = np.array((h2, s2, v2), np.uint8)
 
         thresh = cv2.inRange(hsv, h_min, h_max)
-        cv2.imshow('Origin',img)
+        #cv2.imshow('Origin',img)
         cv2.imshow('result', thresh) 
  
         ch = cv2.waitKey(5)
