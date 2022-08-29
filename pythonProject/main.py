@@ -172,7 +172,7 @@ if __name__ == '__main__':
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
 
-            if not isObjectFound and w < 80 and h < 80:
+            if not isObjectFound and w < 80 and h < 80 and dArea < 100:
                     isRotated = False
                     print("Search for object on " + str(cameraAng))
                     if cameraAng > 0 and not camEdge:
