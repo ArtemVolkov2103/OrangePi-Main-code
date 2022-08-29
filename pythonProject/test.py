@@ -19,7 +19,7 @@ s = serial.Serial('/dev/ttyUSB0', 9600)
 s.close()
 s.open()
 
-edge = True
+edge = False
 
 sleep(1)
 s.write(bytes(str(180) + "," + str(70), 'utf-8'))
