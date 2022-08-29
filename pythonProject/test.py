@@ -31,7 +31,7 @@ while(1):
 			a = a + 1
 			s.write(bytes(str(a) + "," + str(60), 'utf-8'))
 			print(a)
-			sleep(0.5)
+			sleep(0.2)
 		edge = False
 		
 	if not edge:
@@ -39,5 +39,5 @@ while(1):
 			a = a - 1
 			s.write(bytes(str(a) + "," + str(60), 'utf-8'))
 			print(a)
-			sleep(0.5)
+			sleep(0.2)
 		edge = True
