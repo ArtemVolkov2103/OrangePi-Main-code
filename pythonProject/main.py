@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
         #low_blue = numpy.array((90, 70, 70), numpy.uint8)
         #high_blue = numpy.array((140, 255, 255), numpy.uint8)
-        high_blue = numpy.array((110, 215, 250), numpy.uint8)
+        high_blue = numpy.array((120, 215, 250), numpy.uint8)
         low_blue = numpy.array((85, 70, 140), numpy.uint8)
         try:
 			
@@ -158,7 +158,7 @@ if __name__ == '__main__':
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
-                    getColor(img, y, x)
+                    #getColor(img, y, x)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
                     distance = int(11033 / h) #дистанция, 230 пикселей = 48см
                     angle = int((320 - x) / 6.4)
