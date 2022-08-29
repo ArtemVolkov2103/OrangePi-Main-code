@@ -1,5 +1,7 @@
 import cv2
 import numpy as np
+import time
+from time import sleep
 
 def nothing(*arg):
     pass
@@ -34,8 +36,9 @@ try:
         thresh = cv2.inRange(hsv, h_min, h_max)
         #cv2.imshow('Origin',img)
         cv2.imshow('result', thresh) 
- 
+        sleep(0.1)
         ch = cv2.waitKey(5)
+        
         if ch == 27:
             break
     
