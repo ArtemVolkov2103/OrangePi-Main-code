@@ -5,8 +5,8 @@ def getColor(image):
     target = [int(image.shape[1] / 2), int(image.shape[0] / 2)]
 
     b, g, r = image[target[1], target[0]]
-    image = cv2.circle(image, [target[0], target[1]], 5, (int(b), int(g), int(r)), 2)
-	cv2.imshow('image', image)
+    image = cv.circle(image, [target[0], target[1]], 5, (int(b), int(g), int(r)), 2)
+    cv.imshow('image', image)
     print(f'colour = {b}, {g}, {r}')
 
 cap = cv.VideoCapture(1)
