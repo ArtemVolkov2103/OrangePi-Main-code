@@ -32,7 +32,7 @@ while(1):
 		edge = False
 		'''
 	if not edge:
-		for i in range(180, 90):
+		for i in range(90, 180):
 			s.write(bytes(str(i) + "," + str(60), 'utf-8'))
 			print(i)
 			sleep(0.1)
