@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
         #low_blue = numpy.array((90, 70, 70), numpy.uint8)
         #high_blue = numpy.array((140, 255, 255), numpy.uint8)
-        high_blue = numpy.array((145, 195, 235), numpy.uint8)
+        high_blue = numpy.array((125, 195, 235), numpy.uint8)
         low_blue = numpy.array((88, 70, 90), numpy.uint8)
         try:
 			
