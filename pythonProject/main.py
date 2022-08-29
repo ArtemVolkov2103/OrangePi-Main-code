@@ -125,7 +125,7 @@ if __name__ == '__main__':
                     isObjectFound = True
 
                     if angle > 6 and cameraAng < 180:
-                        sleep(0.1)
+                        sleep(0.2)
                         cameraAng = cameraAng + 2
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
@@ -133,7 +133,7 @@ if __name__ == '__main__':
                         print("Обьект на " + str(cameraAng))
 
                     if angle < -6  and cameraAng > 0:
-                        sleep(0.1)
+                        sleep(0.2)
                         cameraAng = cameraAng - 2
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
