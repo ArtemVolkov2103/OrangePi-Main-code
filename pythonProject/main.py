@@ -170,6 +170,7 @@ if __name__ == '__main__':
 
             if not isObjectFound and w < 80 and h < 80:
                     isRotated = False
+                    sleep(0.1)
                     print("Search for object on " + str(cameraAng))
                     if cameraAng > 0 and not camEdge:
                         cameraAng = cameraAng - 1
