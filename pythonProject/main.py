@@ -129,7 +129,7 @@ if __name__ == '__main__':
                         cameraAng = cameraAng + 2
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
-                        sleep(0.2)
+                        sleep(0.15)
                         print("Обьект на " + str(cameraAng))
 
                     if angle < -6  and cameraAng > 0:
@@ -137,7 +137,7 @@ if __name__ == '__main__':
                         cameraAng = cameraAng - 2
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
-                        sleep(0.2)
+                        sleep(0.15)
                         print("Обьект на " + str(cameraAng))
 
                     if not isRotated:
@@ -170,16 +170,17 @@ if __name__ == '__main__':
 
             if not isObjectFound and w < 80 and h < 80:
                     isRotated = False
-                    sleep(0.1)
                     print("Search for object on " + str(cameraAng))
                     if cameraAng > 0 and not camEdge:
                         cameraAng = cameraAng - 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        sleep(0.1)
                         if cameraAng == 0:
                             camEdge = True
                     if cameraAng < 180 and camEdge:
                         cameraAng = cameraAng + 1
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        sleep(0.1)
                         if cameraAng == 180:
                             camEdge = False
                             
