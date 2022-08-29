@@ -85,8 +85,8 @@ if __name__ == '__main__':
 
         #low_blue = numpy.array((90, 70, 70), numpy.uint8)
         #high_blue = numpy.array((140, 255, 255), numpy.uint8)
-        high_blue = numpy.array((140, 195, 235), numpy.uint8)
-        low_blue = numpy.array((88, 70, 90), numpy.uint8)
+        high_blue = numpy.array((110, 215, 250), numpy.uint8)
+        low_blue = numpy.array((85, 70, 140), numpy.uint8)
         try:
 			
             img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
