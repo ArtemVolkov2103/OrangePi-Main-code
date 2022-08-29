@@ -7,7 +7,7 @@ def nothing(*arg):
 cv2.namedWindow( "result" ) 
 cv2.namedWindow( "settings" ) 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cv2.createTrackbar('h1', 'settings', 0, 255, nothing)
 cv2.createTrackbar('s1', 'settings', 0, 255, nothing)
 cv2.createTrackbar('v1', 'settings', 0, 255, nothing)
