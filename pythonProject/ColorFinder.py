@@ -5,7 +5,7 @@ def getColor(image):
     target = [int(image.shape[1] / 2), int(image.shape[0] / 2)]
 
     b, g, r = image[target[1], target[0]]
-    image = cv.circle(image, (320, 240), 5, (int(b), int(g), int(r)), 2)
+    image = cv.circle(image, (320, 240), 10, (int(b), int(g), int(r)), 2)
     cv.imshow('image', image)
     print(f'colour = {b}, {g}, {r}')
 
