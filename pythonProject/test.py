@@ -19,21 +19,24 @@ s = serial.Serial('/dev/ttyUSB0', 9600)
 s.close()
 s.open()
 
-edge = False
+edge = True
+a = 90
 
 sleep(1)
 s.write(bytes(str(180) + "," + str(70), 'utf-8'))
 while(1):
-	'''if edge == True:
+	if edge == True:
 		for i in range(90, 180):
-			s.write(bytes(str(i) + "," + str(60), 'utf-8'))
-			print(i)
+			a = a + 1
+			s.write(bytes(str(a) + "," + str(60), 'utf-8'))
+			print(a)
 			sleep(0.1)
 		edge = False
-		'''
+		
 	if not edge:
 		for i in range(90, 180):
-			s.write(bytes(str(i) + "," + str(60), 'utf-8'))
-			print(i)
+			a = a - 1
+			s.write(bytes(str(a) + "," + str(60), 'utf-8'))
+			print(a)
 			sleep(0.1)
 		edge = True
