@@ -124,17 +124,17 @@ if __name__ == '__main__':
                 if dArea > 100 and w > 80 and h > 80:
                     isObjectFound = True
 
-                    if angle > 4 and cameraAng < 180:
-                        sleep(0.25)
-                        cameraAng = cameraAng + 1
+                    if angle > 6 and cameraAng < 180:
+                        sleep(0.3)
+                        cameraAng = cameraAng + 2
                         #s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
                         #sleep(0.1)
                         print("Обьект на " + str(cameraAng))
 
-                    if angle < -4  and cameraAng > 0:
-                        sleep(0.25)
-                        cameraAng = cameraAng - 1
+                    if angle < -6  and cameraAng > 0:
+                        sleep(0.3)
+                        cameraAng = cameraAng - 2
                         #s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
                         #sleep(0.1)
