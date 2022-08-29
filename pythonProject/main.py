@@ -51,6 +51,16 @@ def checkSize(w, h):
         return True
     else:
         return False
+        
+ def get_bgr(filename):
+    image = cv2.imread(filename)
+    target = [int(image.shape[1] / 2), int(image.shape[0] / 2)]
+
+    b, g, r = image[target[0], target[1]]
+    image = cv2.circle(image, [target[0], target[1]], 5, (int(b), int(g), int(r)), 2)
+
+    print(f'colour = {b}, {g}, {r}')
+
 
 if __name__ == '__main__':
     def nothing(*arg):
