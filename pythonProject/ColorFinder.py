@@ -18,17 +18,17 @@ while(1):
     _, frame = cap.read()
     # Convert BGR to HSV
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
-    getColor(frame)
+    #getColor(frame)
     # define range of blue color in HSV
-    #upper_blue = np.array([99, 255, 255])
-    #lower_blue = np.array([94, 100, 100])
+    upper_blue = np.array([140, 195, 235])
+    lower_blue = np.array([88, 70, 90])
     # Threshold the HSV image to get only blue colors
-    #mask = cv.inRange(hsv, lower_blue, upper_blue)
+    mask = cv.inRange(hsv, lower_blue, upper_blue)
     # Bitwise-AND mask and original image
-    #res = cv.bitwise_and(frame,frame, mask= mask)
+    res = cv.bitwise_and(frame,frame, mask= mask)
     #cv.imshow('frame',frame)
     #cv.imshow('mask',mask)
-    #cv.imshow('res',res)
+    cv.imshow('res',res)
     
     k = cv.waitKey(5) & 0xFF
     if k == 27:
