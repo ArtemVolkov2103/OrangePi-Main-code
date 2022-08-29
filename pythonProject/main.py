@@ -107,7 +107,7 @@ if __name__ == '__main__':
             w = 0
             h = 0
             isObjectFound = False
-            s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+            #s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
             if len(contours) != 0:
                 # выводим найденные контуры
                 cv2.drawContours(img, contours, -1, 255, 4)
@@ -125,7 +125,7 @@ if __name__ == '__main__':
                     isObjectFound = True
 
                     if angle > 6 and cameraAng < 180:
-                        sleep(0.2)
+                        sleep(0.25)
                         cameraAng = cameraAng + 2
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
@@ -133,7 +133,7 @@ if __name__ == '__main__':
                         print("Обьект на " + str(cameraAng))
 
                     if angle < -6  and cameraAng > 0:
-                        sleep(0.2)
+                        sleep(0.25)
                         cameraAng = cameraAng - 2
                         s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         #continue
@@ -159,11 +159,11 @@ if __name__ == '__main__':
                     distance = int(11033 / h) #дистанция, 230 пикселей = 48см
                     angle = int((320 - x) / 6.4)
                     #cv2.putText(img, "Width " + str(w), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
-                    cv2.putText(img, "X " + str(x), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+                    #cv2.putText(img, "X " + str(x), (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
                     cv2.putText(img, "angle " + str(angle), (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-                    cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+                    #cv2.putText(img, "distance " + str(distance), (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
                     # nimers for not a non-stop sending symbols
-                    if distance > 30 and distance < 50 and w < 230 and isObjectFound and isRotated:
+                    if distance > 30 and distance < 50 and w < 230 and isRotated:
                         #s.write(bytes(str(angle) + "," + str(distance), 'utf-8'))
                         cv2.rectangle(img, (310, 10), (340, 40), (255, 255, 255), 30)
                         cv2.putText(img, "F ", (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
@@ -173,12 +173,14 @@ if __name__ == '__main__':
                     print("Search for object on " + str(cameraAng))
                     if cameraAng > 0 and not camEdge:
                         cameraAng = cameraAng - 1
-                        #s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        sleep(0.25)
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 0:
                             camEdge = True
                     if cameraAng < 180 and camEdge:
                         cameraAng = cameraAng + 1
-                        #s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
+                        sleep(0.25)
+                        s.write(bytes(str(cameraAng) + "," + str(60), 'utf-8'))
                         if cameraAng == 180:
                             camEdge = False
                             
