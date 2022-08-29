@@ -24,6 +24,7 @@ a = 90
 
 sleep(1)
 s.write(bytes(str(180) + "," + str(70), 'utf-8'))
+sleep(0.5)
 while(1):
 	if edge == True:
 		for i in range(90, 180):
