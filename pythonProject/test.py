@@ -24,13 +24,13 @@ edge = False
 sleep(1)
 s.write(bytes(str(180) + "," + str(70), 'utf-8'))
 while(1):
-	'''if edge:
+	if edge:
 		for i in range(90, 180):
 			s.write(bytes(str(i) + "," + str(60), 'utf-8'))
 			print(i)
 			sleep(0.1)
-		edge = False'''
-	if edge == False:
+		edge = False
+	else:
 		for i in range(180, 90):
 			s.write(bytes(str(i) + "," + str(60), 'utf-8'))
 			print(i)
