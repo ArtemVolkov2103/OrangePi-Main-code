@@ -1,5 +1,7 @@
 import cv2 as cv
 import numpy as np
+import time
+from time import sleep
 
 def getColor(image):
     target = [int(image.shape[1] / 2), int(image.shape[0] / 2)]
@@ -8,14 +10,15 @@ def getColor(image):
     image = cv.circle(image, (320, 240), 10, (int(b), int(g), int(r)), 2)
     cv.imshow('image', image)
     print(f'colour = {b}, {g}, {r}')
+    sleep(0.1)
 
 cap = cv.VideoCapture(1)
 while(1):
     # Take each frame
     _, frame = cap.read()
-    getColor(frame)
     # Convert BGR to HSV
-    #hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+    hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+    getColor(frame)
     # define range of blue color in HSV
     #upper_blue = np.array([99, 255, 255])
     #lower_blue = np.array([94, 100, 100])
@@ -26,6 +29,7 @@ while(1):
     #cv.imshow('frame',frame)
     #cv.imshow('mask',mask)
     #cv.imshow('res',res)
+    
     k = cv.waitKey(5) & 0xFF
     if k == 27:
         break
