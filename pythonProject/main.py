@@ -158,7 +158,7 @@ if __name__ == '__main__':
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
-                    getColor(img, x, y)
+                    getColor(img, y, x)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
                     distance = int(11033 / h) #дистанция, 230 пикселей = 48см
                     angle = int((320 - x) / 6.4)
