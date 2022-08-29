@@ -121,7 +121,7 @@ if __name__ == '__main__':
                     isObjectFound = False
                 
                             
-                if dArea > 100 and w > 80 and h > 80:
+                if dArea >= 100 and w >= 80 and h >= 80:
                     isObjectFound = True
 
                     if angle > 6 and cameraAng < 180:
