@@ -52,7 +52,11 @@ def checkSize(w, h):
     else:
         return False
         
-
+def getColor(image, x, y):
+    h, s, v = image[x, y]
+    #image = cv.circle(image, (x, y), 10, (int(b), int(g), int(r)), 2)
+    #cv.imshow('image', image)
+    print(f'colour = {h}, {s}, {v}')
 
 
 if __name__ == '__main__':
@@ -154,6 +158,7 @@ if __name__ == '__main__':
                     cv2.rectangle(img, (x, y), (x + w, y + h), RECTCOLOR, RTHICK)
                     x = int(dM10 / dArea)
                     y = int(dM01 / dArea)
+                    getColor(img, x, y)
                     cv2.circle(img, (x, y), 10, (255, 0, 0), -1)
                     distance = int(11033 / h) #дистанция, 230 пикселей = 48см
                     angle = int((320 - x) / 6.4)
