@@ -14,6 +14,15 @@ def shapeDetect(c):
 	shape = ""
 	peri = cv2.arcLength(c, Type)
 	approx = cv2.approxPolyDP(c, 0.04 * peri, True)
+	if len(approx) == 3:
+		shape = "треугольник"
+	elif len(approx) == 4:
+		(x, y, w, h) = cv2.boundingRetc(approx)
+		ar = w / float(h)
+		shape = "квадрат" if ar >= 0.95 and ar <= 1.05 else "прямоугольник"
+	else:
+		shape = "круг"
+	return shape
 
 if __name__ == '__main__':
     def nothing(*arg):
