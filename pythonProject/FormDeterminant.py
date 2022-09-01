@@ -46,7 +46,7 @@ if __name__ == '__main__':
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 		#A9BBC8
-    high_blue = numpy.array((162, 180, 196), numpy.uint8)
+    high_blue = numpy.array((157, 191, 194), numpy.uint8)
     low_blue = numpy.array((42, 114, 145), numpy.uint8)
     while(True):
         flag, img = cap.read()
