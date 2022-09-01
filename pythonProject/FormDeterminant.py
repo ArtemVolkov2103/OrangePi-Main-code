@@ -29,11 +29,13 @@ def shapeDetect(c):
 	if len(approx) == 3:
 		shape = "triangle"
 	elif len(approx) == 4:
-		(x, y, w, h) = cv2.boundingRect(approx)
+		shape = "rectangle"
+		'''(x, y, w, h) = cv2.boundingRect(approx)
 		ar = w / float(h)
 		if ar >= 0.95 and ar <= 1.05:
 			shape = "square"
 		else: "rectangle"
+		'''
 	else:
 		shape = "circle"
 	return shape
@@ -94,7 +96,7 @@ if __name__ == '__main__':
             #shapename = hue + " " + shapename
             #if shapename == "rectangle" or shapename == "square":
             cv2.rectangle(img_copy, (cX, cY), (cX + 140, cY + 30), (255, 255, 255), 30)
-            cv2.putText(img_copy, shapename, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(img_copy, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
             cv2.imshow("Image", img_copy)
 
         k = cv2.waitKey(1)
