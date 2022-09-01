@@ -48,8 +48,8 @@ if __name__ == '__main__':
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-    high_blue = numpy.array((104, 255, 255), numpy.uint8)
-    low_blue = numpy.array((82, 140, 88), numpy.uint8)
+    high_blue = numpy.array((234, 253, 255), numpy.uint8)
+    low_blue = numpy.array((18, 90, 121), numpy.uint8)
     while(True):
         flag, img = cap.read()
         height, width = img.shape[:2]
@@ -93,8 +93,6 @@ if __name__ == '__main__':
             shapename = shapeDetect(c)
             #shapename = hue + " " + shapename
             #if shapename == "rectangle" or shapename == "square":
-            cv2.rectangle(img, (310, 10), (450, 40), (255, 255, 255), 30)
-            cv2.putText(img_copy, shapename, (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
             cv2.rectangle(img_copy, (cX, cY), (cX + 140, cY + 30), (255, 255, 255), 30)
             cv2.putText(img_copy, shapename, (cX, cX), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
             cv2.imshow("Image", img_copy)
