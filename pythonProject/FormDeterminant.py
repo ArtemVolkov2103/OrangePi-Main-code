@@ -47,10 +47,10 @@ if __name__ == '__main__':
         height, width = img.shape[:2]
         
         img_copy = cap
-        resized = imutils.resize(img_copy, width=300)
-        ratio = cap.shape[0] / float(resized.shape[0])
+        #resized = imutils.resize(img_copy, width=300)
+        #ratio = cap.shape[0] / float(resized.shape[0])
 
-        hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)
+        hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
         thres = cv2.GaussianBlur(thres, (5, 5), 0)
