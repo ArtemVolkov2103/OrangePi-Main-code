@@ -24,7 +24,7 @@ FRAMESIZE = (640, 480)
 
 def shapeDetect(c):
 	shape = ""
-	peri = cv2.arcLength(c, Type)
+	peri = cv2.arcLength(c, True)
 	approx = cv2.approxPolyDP(c, 0.04 * peri, True)
 	if len(approx) == 3:
 		shape = "треугольник"
@@ -88,7 +88,7 @@ if __name__ == '__main__':
                 cY = int((M["m01"] / M["m00"]) * ratio)
 
             shapename = shapeDetect(c)
-            shapename = hue + " " + shapename
+            #shapename = hue + " " + shapename
             cv2.imshow("Image", img_copy)
 
         k = cv2.waitKey(1)
