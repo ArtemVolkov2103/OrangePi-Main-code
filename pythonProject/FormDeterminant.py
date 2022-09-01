@@ -10,11 +10,11 @@ import time
 from time import sleep
 
 # цвет прямоугольника (B, G, R)
-RECTCOLOR = (0, 255, 0)
+RECTCOLOR = (0, 0, 255)
 # толщина линии прямоугольника
 RTHICK = 2
 # минимальный размер контуров пятна
-BLOBSIZE = 15000
+BLOBSIZE = 15000 #чуть менее 160*120 - четверть изображения
 
 CONTCOLOR = (0, 255, 0)
 
