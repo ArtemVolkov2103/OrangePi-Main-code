@@ -31,7 +31,9 @@ def shapeDetect(c):
 	elif len(approx) == 4:
 		(x, y, w, h) = cv2.boundingRect(approx)
 		ar = w / float(h)
-		shape = "square" if ar >= 0.95 and ar <= 1.05 else "rectangle"
+		if ar >= 0.95 and ar <= 1.05:
+			shape = "square"
+		else: "rectangle"
 	else:
 		shape = "circle"
 	return shape
@@ -45,7 +47,7 @@ if __name__ == '__main__':
 
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-		#A9BBC8
+
     high_blue = numpy.array((234, 253, 255), numpy.uint8)
     low_blue = numpy.array((18, 90, 121), numpy.uint8)
     while(True):
@@ -93,8 +95,8 @@ if __name__ == '__main__':
             shapename = shapeDetect(c)
             #shapename = hue + " " + shapename
             if shapename == "rectangle" or shapename == "square":
-                cv2.rectangle(img_copy, (310, 10), (450, 40), (255, 255, 255), 30)
-                cv2.putText(img_copy, shapename, (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+                cv2.rectangle(img_copy, (cX, cY), (cX + 140, cY + 30), (255, 255, 255), 30)
+                cv2.putText(img_copy, shapename, (cX + 25, cX + 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
             cv2.imshow("Image", img_copy)
 
         k = cv2.waitKey(1)
