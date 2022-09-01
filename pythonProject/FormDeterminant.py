@@ -89,6 +89,8 @@ if __name__ == '__main__':
 
             shapename = shapeDetect(c)
             #shapename = hue + " " + shapename
+            cv2.rectangle(img_copy, (310, 10), (400, 40), (255, 255, 255), 30)
+            cv2.putText(img_copy, shapename, (315, 35), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
             cv2.imshow("Image", img_copy)
 
         k = cv2.waitKey(1)
