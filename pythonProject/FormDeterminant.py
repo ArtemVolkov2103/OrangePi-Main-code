@@ -29,7 +29,7 @@ def shapeDetect(c):
 	if len(approx) == 3:
 		shape = "треугольник"
 	elif len(approx) == 4:
-		(x, y, w, h) = cv2.boundingRetc(approx)
+		(x, y, w, h) = cv2.boundingRect(approx)
 		ar = w / float(h)
 		shape = "квадрат" if ar >= 0.95 and ar <= 1.05 else "прямоугольник"
 	else:
