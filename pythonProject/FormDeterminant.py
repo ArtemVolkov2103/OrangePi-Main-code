@@ -39,19 +39,19 @@ if __name__ == '__main__':
     high_blue = numpy.array((104, 255, 255), numpy.uint8)
     low_blue = numpy.array((82, 140, 88), numpy.uint8)
     while(True):
-		flag, img = cap.read()
-		height, width = img.shape[:2]
-		hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)
+        flag, img = cap.read()
+        height, width = img.shape[:2]
+        hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)
 
-		thres = cv2.inRange(hsv, low_blue, high_blue)
-		thres = cv2.GaussianBlur(thres, (5, 5), 0)
-		cnts = cv2.findContours( 
+        thres = cv2.inRange(hsv, low_blue, high_blue)
+        thres = cv2.GaussianBlur(thres, (5, 5), 0)
+        cnts = cv2.findContours( 
                                  thres.copy(), 
                                  cv2.RETR_EXTERNAL, 
                                  cv2.CHAIN_APPROX_SIMPLE 
                                 )                       
-		cnts = imutils.grab_contours(cnts)
-		for c in cnts:
+        cnts = imutils.grab_contours(cnts)
+        for c in cnts:
 			if cv2.contourArea(c) < BLOBSIZE:
 				continue
 			c = c.astype("float")
