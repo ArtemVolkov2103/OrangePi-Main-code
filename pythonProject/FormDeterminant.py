@@ -1,4 +1,6 @@
-import cv2 as cv
+import cv2
+import video
+
 import numpy as np
 import imutils
 import time
