@@ -40,7 +40,7 @@ if __name__ == '__main__':
     def nothing(*arg):
         pass
 
-    #cv2.namedWindow("out_window")
+    cv2.namedWindow("Form Determinant")
     cap = video.create_capture(1) 
 
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
