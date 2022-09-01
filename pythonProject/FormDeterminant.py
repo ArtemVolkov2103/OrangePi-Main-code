@@ -45,6 +45,11 @@ if __name__ == '__main__':
     while(True):
         flag, img = cap.read()
         height, width = img.shape[:2]
+        
+        img_copy = cap.copy()
+        resized = imutils.resize(image, width=300)
+        ratio = image.shape[0] / float(resized.shape[0])
+
         hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
