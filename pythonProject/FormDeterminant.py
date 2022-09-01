@@ -47,7 +47,7 @@ if __name__ == '__main__':
         height, width = img.shape[:2]
         
         img_copy = cap
-        resized = imutils.resize(cap, width=300)
+        resized = imutils.resize(img_copy, width=300)
         ratio = cap.shape[0] / float(resized.shape[0])
 
         hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)
