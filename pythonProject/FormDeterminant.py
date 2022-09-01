@@ -79,7 +79,7 @@ if __name__ == '__main__':
             box = cv2.boxPoints(rect) 
             box = np.int0(box)
             cv2.drawContours(img_copy,[box],0,(255,0,0),2)
-            if cv2.contourArea(c) < BLOBSIZE:
+            if cv2.contourArea(c) <= BLOBSIZE:
                 continue
 
             M = cv2.moments(c)
