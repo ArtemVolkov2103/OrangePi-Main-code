@@ -29,7 +29,8 @@ if __name__ == '__main__':
     def nothing(*arg):
         pass
 
-	cv2.namedWindow("out_window") cap = video.create_capture(1) 
+	cv2.namedWindow("out_window")
+	cap = video.create_capture(1) 
 
 	cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 	cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
@@ -74,9 +75,9 @@ if __name__ == '__main__':
 			shapename = hue + " " + shapename
 			cv2.imshow("Image", img_copy)
 
-    k = cv2.waitKey(1)
-    if k == 27:
-        break
+		k = cv2.waitKey(1)
+		if k == 27:
+			break
 
 cv2.destroyAllWindows()
 vs.stop()
