@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/orangepi/Documents/python/pythonProject/venv/Lib/site-packages/')
+
 import cv2
 import video
 
