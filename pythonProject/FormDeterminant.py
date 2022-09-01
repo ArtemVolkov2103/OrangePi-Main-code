@@ -3,7 +3,7 @@ sys.path.append('/home/orangepi/Documents/python/pythonProject/venv/Lib/site-pac
 
 import cv2
 import video
-
+import numpy
 import numpy as np
 import imutils
 import time
@@ -40,7 +40,6 @@ if __name__ == '__main__':
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 		
-    height, width = img.shape[:2]
     high_blue = numpy.array((104, 255, 255), numpy.uint8)
     low_blue = numpy.array((82, 140, 88), numpy.uint8)
     while(True):
