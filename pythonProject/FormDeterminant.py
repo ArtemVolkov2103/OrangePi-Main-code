@@ -14,7 +14,7 @@ RECTCOLOR = (0, 255, 0)
 # толщина линии прямоугольника
 RTHICK = 2
 # минимальный размер контуров пятна
-BLOBSIZE = 1500
+BLOBSIZE = 2000
 
 CONTCOLOR = (0, 255, 0)
 
@@ -81,8 +81,6 @@ if __name__ == '__main__':
             box = cv2.boxPoints(rect) 
             box = np.int0(box)
             cv2.drawContours(img_copy,[box],0,(255,0,0),2)
-            if cv2.contourArea(c) <= BLOBSIZE:
-                continue
 
             M = cv2.moments(c)
             cX = 0
