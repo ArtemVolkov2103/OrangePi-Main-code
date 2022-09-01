@@ -42,3 +42,6 @@ if __name__ == '__main__':
         #high_blue = numpy.array((140, 255, 255), numpy.uint8)
         high_blue = numpy.array((104, 255, 255), numpy.uint8)
         low_blue = numpy.array((82, 140, 88), numpy.uint8)
+		
+		while(True):
+			
