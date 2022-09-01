@@ -68,7 +68,7 @@ if __name__ == '__main__':
                                 )                       
         cnts = imutils.grab_contours(cnts)
         for c in cnts:
-            if cv2.contourArea(c) < BLOBSIZE:
+            if cv2.contourArea(c) <= BLOBSIZE:
                 continue
             c = c.astype("float")
             c *= ratio
