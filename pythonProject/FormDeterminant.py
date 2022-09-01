@@ -96,7 +96,6 @@ if __name__ == '__main__':
         k = cv2.waitKey(1)
         if k == 27:
             break
-
+cap.release()
 cv2.destroyAllWindows()
-vs.stop()
         
