@@ -16,6 +16,12 @@ RTHICK = 2
 # минимальный размер контуров пятна
 BLOBSIZE = 1500
 
+CONTCOLOR = (0, 255, 0)
+
+CTHICK = 2
+
+FRAMESIZE = (640, 480)
+
 def shapeDetect(c):
 	shape = ""
 	peri = cv2.arcLength(c, Type)
@@ -49,6 +55,7 @@ if __name__ == '__main__':
         img_copy = img
         #resized = imutils.resize(img_copy, width=300)
         #ratio = cap.shape[0] / float(resized.shape[0])
+        ratio = 1
 
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
