@@ -52,32 +52,32 @@ if __name__ == '__main__':
                                 )                       
         cnts = imutils.grab_contours(cnts)
         for c in cnts:
-			if cv2.contourArea(c) < BLOBSIZE:
-				continue
-			c = c.astype("float")
-			c *= ratio
-			c = c.astype("int")
+            if cv2.contourArea(c) < BLOBSIZE:
+                continue
+            c = c.astype("float")
+            c *= ratio
+            c = c.astype("int")
 
-			cv2.drawContours(img_copy, [c], -1, CONTCOLOR, CTHICK)
+            cv2.drawContours(img_copy, [c], -1, CONTCOLOR, CTHICK)
 
-			if cv2.contourArea(c) < BLOBSIZE:
-				continue
+            if cv2.contourArea(c) < BLOBSIZE:
+                continue
 
-			M = cv2.moments(c)
-			cX = 0
-			cY = 0
+            M = cv2.moments(c)
+            cX = 0
+            cY = 0
 
-			if M["m00"] != 0:
-				cX = int((M["m10"] / M["m00"]) * ratio)
-				cY = int((M["m01"] / M["m00"]) * ratio)
+            if M["m00"] != 0:
+                cX = int((M["m10"] / M["m00"]) * ratio)
+                cY = int((M["m01"] / M["m00"]) * ratio)
 
-			shapename = shapeDetect(c)
-			shapename = hue + " " + shapename
-			cv2.imshow("Image", img_copy)
+            shapename = shapeDetect(c)
+            shapename = hue + " " + shapename
+            cv2.imshow("Image", img_copy)
 
-		k = cv2.waitKey(1)
-		if k == 27:
-			break
+        k = cv2.waitKey(1)
+        if k == 27:
+            break
 
 cv2.destroyAllWindows()
 vs.stop()
