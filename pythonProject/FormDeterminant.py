@@ -77,7 +77,7 @@ if __name__ == '__main__':
             c = c.astype("int")
 
             cv2.drawContours(img_copy, [c], -1, CONTCOLOR, CTHICK)
-            rect = cv2.maxAreaRect(c)
+            rect = cv2.minAreaRect(c)
             box = cv2.boxPoints(rect) 
             box = np.int0(box)
             cv2.drawContours(img_copy,[box],0,(255,0,0),2)
