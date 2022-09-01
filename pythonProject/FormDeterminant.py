@@ -29,13 +29,13 @@ if __name__ == '__main__':
     def nothing(*arg):
         pass
 
-	cv2.namedWindow("out_window")
-	cap = video.create_capture(1) 
+    cv2.namedWindow("out_window")
+    cap = video.create_capture(1) 
 
-	cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-	cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 		
-	height, width = img.shape[:2]
+    height, width = img.shape[:2]
     high_blue = numpy.array((104, 255, 255), numpy.uint8)
     low_blue = numpy.array((82, 140, 88), numpy.uint8)
     while(True):
