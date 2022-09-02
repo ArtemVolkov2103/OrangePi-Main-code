@@ -43,7 +43,7 @@ if __name__ == '__main__':
     low_blue = numpy.array((70, 125, 75), numpy.uint8)
     while(True):
         flag, img = cap.read()
-        height, width = img.shape[:2]
+        #height, width = img.shape[:2]
         
         sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
         img_copy = cv2.filter2D(img, -1, sharpen_kernel)
