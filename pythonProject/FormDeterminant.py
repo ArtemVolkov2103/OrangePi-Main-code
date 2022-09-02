@@ -61,7 +61,10 @@ if __name__ == '__main__':
         foreground = img_copy.copy()
         seed = (320, 240)
         cv2.floodFill(foreground, None, seedPoint=seed, newVal=(0, 0, 0), loDiff=(5, 5, 5, 5), upDiff=(5, 5, 5, 5))
+        sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
+        sharpen = cv2.filter2D(img, -1, sharpen_kernel)
 
+        cv2.imshow('sharpen', sharpen)
         #resized = imutils.resize(img_copy, width=300)
         #ratio = cap.shape[0] / float(resized.shape[0])
         ratio = 1
@@ -111,7 +114,7 @@ if __name__ == '__main__':
             cv2.putText(img_copy, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("thres", closed)
         cv2.imshow("Image", img_copy)
-        cv2.imshow("foreground", foreground)
+        #cv2.imshow("foreground", foreground)
 
 
 
