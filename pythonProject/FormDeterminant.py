@@ -65,7 +65,7 @@ if __name__ == '__main__':
         mask2 = cv2.threshold(grayimg1 , 220, 255, cv2.THRESH_BINARY)[1]
         result2 = cv2.inpaint(img, mask2, 0.1, cv2.INPAINT_TELEA)
         
-        hsv = cv2.cvtColor(result2, cv2.COLOR_BGR2HSV)
+        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
