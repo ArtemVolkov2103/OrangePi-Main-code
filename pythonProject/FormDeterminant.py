@@ -61,12 +61,16 @@ if __name__ == '__main__':
         #resized = imutils.resize(img_copy, width=300)
         #ratio = cap.shape[0] / float(resized.shape[0])
         ratio = 1
-
-        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        grayimg1 = cv2.cvtColor(img_copy, cv2.COLOR_BGR2GRAY)
+        mask2 = cv2.threshold(grayimg1 , 220, 255, cv2.THRESH_BINARY)[1]
+        result2 = cv2.inpaint(img, mask2, 0.1, cv2.INPAINT_TELEA)
+        
+        hsv = cv2.cvtColor(result2, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
         thres = cv2.medianBlur(thres, 7)
+ 
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (50, 50))
         closed = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
         cnts = cv2.findContours( 
