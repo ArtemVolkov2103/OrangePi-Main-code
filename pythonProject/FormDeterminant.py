@@ -36,8 +36,8 @@ def shapeDetect(c):
 			shape = "square"
 		else: "rectangle"
 		'''
-	else:
-		shape = "circle"
+	#else:
+		#shape = "circle"
 	return shape
 
 if __name__ == '__main__':
