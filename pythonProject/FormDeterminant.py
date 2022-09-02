@@ -97,9 +97,9 @@ if __name__ == '__main__':
 
             shapename = shapeDetect(c)
             #shapename = hue + " " + shapename
-            #if shapename == "rectangle" or shapename == "square":
-            cv2.rectangle(img, (cX, cY), (cX + 140, cY + 25), (255, 255, 255), 30)
-            cv2.putText(img, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+            if shapename == "rectangle" or shapename == "square":
+               cv2.rectangle(img, (cX, cY), (cX + 140, cY + 25), (255, 255, 255), 30)
+               cv2.putText(img, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("thres", closed)
         cv2.imshow("Image", img)
 
