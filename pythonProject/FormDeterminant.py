@@ -14,7 +14,7 @@ RECTCOLOR = (0, 0, 255)
 # толщина линии прямоугольника
 RTHICK = 2
 # минимальный размер контуров пятна
-BLOBSIZE = 2000 #чуть менее 160*120 - четверть изображения
+BLOBSIZE = 2000
 
 CONTCOLOR = (0, 255, 0)
 
@@ -76,14 +76,11 @@ if __name__ == '__main__':
                 cY = int(M["m01"] / M["m00"])
 
             shapename = shapeDetect(c)
-            #shapename = hue + " " + shapename
             if shapename == "rectangle" or shapename == "square":
                cv2.rectangle(img, (cX, cY), (cX + 140, cY + 25), (255, 255, 255), 30)
                cv2.putText(img, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("thres", closed)
         cv2.imshow("Image", img)
-
-
 
         k = cv2.waitKey(1)
         if k == 27:
