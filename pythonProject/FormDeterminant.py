@@ -52,7 +52,7 @@ if __name__ == '__main__':
     #high_blue = numpy.array((160, 253, 253), numpy.uint8)
     #low_blue = numpy.array((10, 65, 90), numpy.uint8)
     high_blue = numpy.array((244, 253, 255), numpy.uint8)
-    low_blue = numpy.array((18, 90, 121), numpy.uint8)
+    low_blue = numpy.array((82, 140, 88), numpy.uint8)
     while(True):
         flag, img = cap.read()
         height, width = img.shape[:2]
