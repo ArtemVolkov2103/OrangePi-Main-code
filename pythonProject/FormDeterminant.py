@@ -57,7 +57,7 @@ if __name__ == '__main__':
         flag, img = cap.read()
         height, width = img.shape[:2]
         
-        img_copy = img
+        img_copy = np.maximum(img, 10)
         #resized = imutils.resize(img_copy, width=300)
         #ratio = cap.shape[0] / float(resized.shape[0])
         ratio = 1
