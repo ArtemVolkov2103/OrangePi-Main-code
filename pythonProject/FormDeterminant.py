@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
-        thres = cv2.medianBlur(thres, 8)
+        thres = cv2.medianBlur(thres, 7)
 
         cnts = cv2.findContours( 
                                  thres.copy(), 
