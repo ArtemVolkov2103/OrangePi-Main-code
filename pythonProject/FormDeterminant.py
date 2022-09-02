@@ -46,8 +46,8 @@ if __name__ == '__main__':
         
         sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
         #img_copy = cv2.filter2D(img, -1, sharpen_kernel)
-        img_copy = img
-        hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
+        #img_copy = img
+        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
         thres = cv2.medianBlur(thres, 13)
