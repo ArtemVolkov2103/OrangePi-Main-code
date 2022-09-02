@@ -65,7 +65,9 @@ if __name__ == '__main__':
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
-        thres = cv2.GaussianBlur(thres, (5, 5), 0)
+        #thres = cv2.GaussianBlur(thres, (5, 5), 0)
+        thres = cv2.medianBlur(thres, 8)
+
         cnts = cv2.findContours( 
                                  thres.copy(), 
                                  cv2.RETR_EXTERNAL, 
