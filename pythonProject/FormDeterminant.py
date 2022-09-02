@@ -43,7 +43,6 @@ if __name__ == '__main__':
     low_blue = numpy.array((70, 125, 75), numpy.uint8)
     while(True):
         flag, img = cap.read()
-        #height, width = img.shape[:2]
         
         sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
         img_copy = cv2.filter2D(img, -1, sharpen_kernel)
@@ -76,10 +75,10 @@ if __name__ == '__main__':
                 cY = int(M["m01"] / M["m00"])
 
             shapename = shapeDetect(c)
-            if shapename == "rectangle" or shapename == "square":
+            if shapename == "rectangle":
                cv2.rectangle(img, (cX, cY), (cX + 140, cY + 25), (255, 255, 255), 30)
                cv2.putText(img, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
-        cv2.imshow("thres", closed)
+        #cv2.imshow("thres", closed)
         cv2.imshow("Image", img)
 
         k = cv2.waitKey(1)
