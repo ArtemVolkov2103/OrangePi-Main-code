@@ -100,7 +100,9 @@ if __name__ == '__main__':
             #if shapename == "rectangle" or shapename == "square":
             cv2.rectangle(img_copy, (cX, cY), (cX + 140, cY + 30), (255, 255, 255), 30)
             cv2.putText(img_copy, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+        cv2.imshow("thres", thres)
         cv2.imshow("Image", img_copy)
+
 
         k = cv2.waitKey(1)
         if k == 27:
