@@ -72,8 +72,8 @@ if __name__ == '__main__':
             cY = 0
 
             if M["m00"] != 0:
-                cX = int((M["m10"] / M["m00"]) * ratio)
-                cY = int((M["m01"] / M["m00"]) * ratio)
+                cX = int(M["m10"] / M["m00"])
+                cY = int(M["m01"] / M["m00"])
 
             shapename = shapeDetect(c)
             #shapename = hue + " " + shapename
