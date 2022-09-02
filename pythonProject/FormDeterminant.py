@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-    high_blue = numpy.array((204, 255, 255), numpy.uint8)
+    high_blue = numpy.array((124, 255, 255), numpy.uint8)
     low_blue = numpy.array((70, 125, 75), numpy.uint8)
     while(True):
         flag, img = cap.read()
@@ -61,7 +61,7 @@ if __name__ == '__main__':
         ratio = 1
         
         hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
-        hsv = cv2.medianBlur(hsv, 15)
+
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
         thres = cv2.medianBlur(thres, 7)
