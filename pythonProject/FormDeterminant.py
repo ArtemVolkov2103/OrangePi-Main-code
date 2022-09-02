@@ -67,10 +67,10 @@ if __name__ == '__main__':
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
         thres = cv2.medianBlur(thres, 7)
-		kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
-		closed = cv2.morphologyEx(edged, cv2.MORPH_CLOSE, kernel)
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
+        closed = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
         cnts = cv2.findContours( 
-                                 thres.copy(), 
+                                 closed.copy(), 
                                  cv2.RETR_EXTERNAL, 
                                  cv2.CHAIN_APPROX_SIMPLE 
                                 )                       
@@ -101,7 +101,7 @@ if __name__ == '__main__':
             #if shapename == "rectangle" or shapename == "square":
             cv2.rectangle(img_copy, (cX, cY), (cX + 140, cY + 30), (255, 255, 255), 30)
             cv2.putText(img_copy, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
-        cv2.imshow("thres", thres)
+        cv2.imshow("thres", closed)
         cv2.imshow("Image", img_copy)
 
 
