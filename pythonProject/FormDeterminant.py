@@ -28,7 +28,7 @@ def shapeDetect(c):
 	approx = cv2.approxPolyDP(c, 0.04 * peri, True)
 	if len(approx) == 3:
 		shape = "triangle"
-	elif len(approx) == 4:
+	elif len(approx) == 4 or len(approx) == 5:
 		shape = "rectangle"
 		'''(x, y, w, h) = cv2.boundingRect(approx)
 		ar = w / float(h)
