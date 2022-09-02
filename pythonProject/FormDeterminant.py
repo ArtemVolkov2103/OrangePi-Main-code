@@ -75,9 +75,9 @@ if __name__ == '__main__':
         for c in cnts:
             if cv2.contourArea(c) <= BLOBSIZE:
                 continue
-            c = c.astype("float")
-            c *= ratio
-            c = c.astype("int")
+            #c = c.astype("float")
+            #c *= ratio
+            #c = c.astype("int")
 
             cv2.drawContours(img_copy, [c], -1, CONTCOLOR, CTHICK)
             rect = cv2.minAreaRect(c)
