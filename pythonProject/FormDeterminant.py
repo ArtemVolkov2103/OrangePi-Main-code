@@ -73,7 +73,7 @@ if __name__ == '__main__':
         cnts = cv2.findContours( 
                                  closed.copy(), 
                                  cv2.RETR_LIST, 
-                                 cv2.CHAIN_APPROX_TC89_L1 
+                                 cv2.CHAIN_APPROX_SIMPLE 
                                 )                       
         cnts = imutils.grab_contours(cnts)
         for c in cnts:
