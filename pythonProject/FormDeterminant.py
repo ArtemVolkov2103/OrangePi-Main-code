@@ -45,8 +45,8 @@ if __name__ == '__main__':
         flag, img = cap.read()
         
         sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
-        img_copy = cv2.filter2D(img, -1, sharpen_kernel)
-        #img_copy = img
+        #img_copy = cv2.filter2D(img, -1, sharpen_kernel)
+        img_copy = img
         hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
@@ -79,7 +79,7 @@ if __name__ == '__main__':
                cv2.rectangle(img, (cX, cY), (cX + 140, cY + 25), (255, 255, 255), 30)
                cv2.putText(img, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         #cv2.imshow("thres", closed)
-        cv2.imshow("Image", img_copy)
+        cv2.imshow("Image", img)
 
         k = cv2.waitKey(1)
         if k == 27:
