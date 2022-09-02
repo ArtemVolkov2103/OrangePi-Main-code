@@ -61,10 +61,10 @@ if __name__ == '__main__':
         ratio = 1
         
         hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
-
+		hsv = cv2.medianBlur(hsv, 15)
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
-        thres = cv2.medianBlur(thres, 15)
+        thres = cv2.medianBlur(thres, 7)
         
         #edged = cv2.Canny(thres, 10, 250)
         
