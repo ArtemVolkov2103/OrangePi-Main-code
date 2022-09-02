@@ -57,20 +57,10 @@ if __name__ == '__main__':
         flag, img = cap.read()
         height, width = img.shape[:2]
         
-        #img_copy = np.maximum(img, 10)
-        #foreground = img_copy.copy()
-        #seed = (320, 240)
-        #cv2.floodFill(foreground, None, seedPoint=seed, newVal=(0, 0, 0), loDiff=(5, 5, 5, 5), upDiff=(5, 5, 5, 5))
         sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
         img_copy = cv2.filter2D(img, -1, sharpen_kernel)
 
-        #cv2.imshow('sharpen', sharpen)
-        #resized = imutils.resize(img_copy, width=300)
-        #ratio = cap.shape[0] / float(resized.shape[0])
         ratio = 1
-        #grayimg1 = cv2.cvtColor(img_copy, cv2.COLOR_BGR2GRAY)
-        #mask2 = cv2.threshold(grayimg1 , 220, 255, cv2.THRESH_BINARY)[1]
-        #result2 = cv2.inpaint(img, mask2, 0.1, cv2.INPAINT_TELEA)
         
         hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
 
@@ -91,9 +81,7 @@ if __name__ == '__main__':
         for c in cnts:
             if cv2.contourArea(c) <= BLOBSIZE:
                 continue
-            #c = c.astype("float")
-            #c *= ratio
-            #c = c.astype("int")
+            
 
             cv2.drawContours(img_copy, [c], -1, CONTCOLOR, CTHICK)
             rect = cv2.minAreaRect(c)
