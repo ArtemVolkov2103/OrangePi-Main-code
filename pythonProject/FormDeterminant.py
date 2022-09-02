@@ -26,25 +26,15 @@ def shapeDetect(c):
 	shape = ""
 	peri = cv2.arcLength(c, True)
 	approx = cv2.approxPolyDP(c, 0.04 * peri, True)
-	if len(approx) == 3:
-		shape = "triangle"
-	elif len(approx) == 4 or len(approx) == 5:
+	if len(approx) == 4 or len(approx) == 5:
 		shape = "rectangle"
-		'''(x, y, w, h) = cv2.boundingRect(approx)
-		ar = w / float(h)
-		if ar >= 0.95 and ar <= 1.05:
-			shape = "square"
-		else: "rectangle"
-		'''
-	#else:
-		#shape = "circle"
+
 	return shape
 
 if __name__ == '__main__':
     def nothing(*arg):
         pass
 
-    #cv2.namedWindow("Form Determinant")
     cap = video.create_capture(1) 
 
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
@@ -57,17 +47,12 @@ if __name__ == '__main__':
         
         sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
         img_copy = cv2.filter2D(img, -1, sharpen_kernel)
-
-        ratio = 1
         
         hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
-        #thres = cv2.GaussianBlur(thres, (5, 5), 0)
         thres = cv2.medianBlur(thres, 13)
-        
-        #edged = cv2.Canny(thres, 10, 250)
-        
+                
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (30, 30))
         closed = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
         cnts = cv2.findContours( 
@@ -80,12 +65,7 @@ if __name__ == '__main__':
             if cv2.contourArea(c) <= BLOBSIZE:
                 continue
             
-
             cv2.drawContours(img, [c], -1, CONTCOLOR, CTHICK)
-            rect = cv2.minAreaRect(c)
-            box = cv2.boxPoints(rect) 
-            box = np.int0(box)
-            cv2.drawContours(img,[box],0,(255,0,0),2)
 
             M = cv2.moments(c)
             cX = 0
