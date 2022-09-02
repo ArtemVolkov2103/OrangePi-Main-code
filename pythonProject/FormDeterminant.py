@@ -62,7 +62,7 @@ if __name__ == '__main__':
         
         hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
         gray = cv2.cvtColor(img_copy, cv2.COLOR_BGR2GRAY)
-        gray = cv2.medianBlur(thres, 7)
+        gray = cv2.medianBlur(gray, 7)
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
         thres = cv2.medianBlur(thres, 7)
