@@ -73,13 +73,16 @@ if __name__ == '__main__':
         #result2 = cv2.inpaint(img, mask2, 0.1, cv2.INPAINT_TELEA)
         
         hsv = cv2.cvtColor(img_copy, cv2.COLOR_BGR2HSV)
+
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
         thres = cv2.medianBlur(thres, 7)
+        
+        gray = cv2.cvtColor(img_copy, cv2.COLOR_BGR2GRAY)
         edged = cv2.Canny(thres, 10, 250)
-
+        
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (30, 30))
-        closed = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
+        closed = cv2.morphologyEx(edged, cv2.MORPH_CLOSE, kernel)
         cnts = cv2.findContours( 
                                  closed.copy(), 
                                  cv2.RETR_EXTERNAL, 
