@@ -111,6 +111,8 @@ if __name__ == '__main__':
             cv2.putText(img_copy, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("thres", closed)
         cv2.imshow("Image", img_copy)
+        cv2.imshow("foreground", foreground)
+
 
 
         k = cv2.waitKey(1)
