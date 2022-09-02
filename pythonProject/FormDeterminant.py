@@ -59,7 +59,7 @@ if __name__ == '__main__':
         
         img_copy = np.maximum(img, 10)
         foreground = img_copy.copy()
-        seed = (10, 10)
+        seed = (320, 240)
         cv2.floodFill(foreground, None, seedPoint=seed, newVal=(0, 0, 0), loDiff=(5, 5, 5, 5), upDiff=(5, 5, 5, 5))
 
         #resized = imutils.resize(img_copy, width=300)
