@@ -78,7 +78,7 @@ if __name__ == '__main__':
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
         thres = cv2.medianBlur(thres, 7)
  
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (30, 30))
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (10, 10))
         closed = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
         cnts = cv2.findContours( 
                                  closed.copy(), 
