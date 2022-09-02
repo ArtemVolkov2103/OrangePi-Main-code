@@ -68,7 +68,7 @@ if __name__ == '__main__':
         
         #edged = cv2.Canny(thres, 10, 250)
         
-        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (20, 20))
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
         closed = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
         cnts = cv2.findContours( 
                                  closed.copy(), 
