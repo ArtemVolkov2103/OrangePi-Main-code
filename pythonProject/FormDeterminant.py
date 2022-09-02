@@ -58,6 +58,10 @@ if __name__ == '__main__':
         height, width = img.shape[:2]
         
         img_copy = np.maximum(img, 10)
+        foreground = img_copy.copy()
+        seed = (10, 10)
+        cv2.floodFill(foreground, None, seedPoint=seed, newVal=(0, 0, 0), loDiff=(5, 5, 5, 5), upDiff=(5, 5, 5, 5))
+
         #resized = imutils.resize(img_copy, width=300)
         #ratio = cap.shape[0] / float(resized.shape[0])
         ratio = 1
