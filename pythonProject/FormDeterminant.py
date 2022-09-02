@@ -72,7 +72,7 @@ if __name__ == '__main__':
         closed = cv2.morphologyEx(thres, cv2.MORPH_CLOSE, kernel)
         cnts = cv2.findContours( 
                                  closed.copy(), 
-                                 cv2.RETR_EXTERNAL, 
+                                 cv2.RETR_CCOMP, 
                                  cv2.CHAIN_APPROX_SIMPLE 
                                 )                       
         cnts = imutils.grab_contours(cnts)
