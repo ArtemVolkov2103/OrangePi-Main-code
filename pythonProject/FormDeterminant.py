@@ -52,7 +52,7 @@ if __name__ == '__main__':
     #high_blue = numpy.array((160, 253, 253), numpy.uint8)
     #low_blue = numpy.array((10, 65, 90), numpy.uint8)
     high_blue = numpy.array((124, 255, 255), numpy.uint8)
-    low_blue = numpy.array((82, 140, 88), numpy.uint8)
+    low_blue = numpy.array((70, 125, 75), numpy.uint8)
     while(True):
         flag, img = cap.read()
         height, width = img.shape[:2]
@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
         thres = cv2.inRange(hsv, low_blue, high_blue)
         #thres = cv2.GaussianBlur(thres, (5, 5), 0)
-        thres = cv2.medianBlur(thres, 11)
+        thres = cv2.medianBlur(thres, 9)
 
         cnts = cv2.findContours( 
                                  thres.copy(), 
