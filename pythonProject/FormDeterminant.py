@@ -81,11 +81,11 @@ if __name__ == '__main__':
                 continue
             
 
-            cv2.drawContours(img_copy, [c], -1, CONTCOLOR, CTHICK)
+            cv2.drawContours(img, [c], -1, CONTCOLOR, CTHICK)
             rect = cv2.minAreaRect(c)
             box = cv2.boxPoints(rect) 
             box = np.int0(box)
-            cv2.drawContours(img_copy,[box],0,(255,0,0),2)
+            cv2.drawContours(img,[box],0,(255,0,0),2)
 
             M = cv2.moments(c)
             cX = 0
@@ -98,10 +98,10 @@ if __name__ == '__main__':
             shapename = shapeDetect(c)
             #shapename = hue + " " + shapename
             #if shapename == "rectangle" or shapename == "square":
-            cv2.rectangle(img_copy, (cX, cY), (cX + 140, cY + 25), (255, 255, 255), 30)
-            cv2.putText(img_copy, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+            cv2.rectangle(img, (cX, cY), (cX + 140, cY + 25), (255, 255, 255), 30)
+            cv2.putText(img, shapename, (cX, cY + 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
         cv2.imshow("thres", closed)
-        cv2.imshow("Image", img_copy)
+        cv2.imshow("Image", img)
 
 
 
